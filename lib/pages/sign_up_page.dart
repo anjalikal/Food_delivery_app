@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/common/color_resources.dart';
 
-import '../constants.dart';
+import '../common/constants.dart';
 
 class SignUpPage extends StatelessWidget {
 
@@ -80,11 +81,11 @@ class SignUpPage extends StatelessWidget {
                                     return "Your Name is Required";
                                   }
                                 },
-                                cursorColor: kGreenColor,
+                                cursorColor: ColorRes.kGreenColor,
                                 decoration: InputDecoration(
                                   hintText: "Your Name",
                                   focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: kGreenColor),
+                                    borderSide: BorderSide(color: ColorRes.kGreenColor),
                                   ),
                                 ),
                               ),
@@ -100,11 +101,11 @@ class SignUpPage extends StatelessWidget {
                                     return "Email Should be Valid";
                                   }
                                 },
-                                cursorColor: kGreenColor,
+                                cursorColor: ColorRes.kGreenColor,
                                 decoration: InputDecoration(
                                   hintText: "Email",
                                   focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: kGreenColor),
+                                    borderSide: BorderSide(color: ColorRes.kGreenColor),
                                   ),
                                 ),
                               ),
@@ -120,11 +121,11 @@ class SignUpPage extends StatelessWidget {
                                     return "Phone No. Should be 10 Digits";
                                   }
                                 },
-                                cursorColor: kGreenColor,
+                                cursorColor: ColorRes.kGreenColor,
                                 decoration: InputDecoration(
                                   hintText: "Phone No.",
                                   focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: kGreenColor),
+                                    borderSide: BorderSide(color: ColorRes.kGreenColor),
                                   ),
                                 ),
                               ),
@@ -140,11 +141,11 @@ class SignUpPage extends StatelessWidget {
                                     return "Password Length Should be More then 6 Character";
                                   }
                                 },
-                                cursorColor: kGreenColor,
+                                cursorColor: ColorRes.kGreenColor,
                                 decoration: InputDecoration(
                                   hintText: "Password",
                                   focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: kGreenColor),
+                                    borderSide: BorderSide(color: ColorRes.kGreenColor),
                                   ),
                                 ),
                               ),
@@ -160,11 +161,11 @@ class SignUpPage extends StatelessWidget {
                                     return "Confirm Password Length Should be More then 6 Character";
                                   }
                                 },
-                                cursorColor: kGreenColor,
+                                cursorColor: ColorRes.kGreenColor,
                                 decoration: InputDecoration(
                                   hintText: " Confirm Password",
                                   focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: kGreenColor),
+                                    borderSide: BorderSide(color: ColorRes.kGreenColor),
                                   ),
                                 ),
                               ),
@@ -192,7 +193,7 @@ class SignUpPage extends StatelessWidget {
                                 child: Container(
                                   width: deviceWidth,
                                   decoration: BoxDecoration(
-                                      color: kGreenColor,
+                                      color: ColorRes.kGreenColor,
                                       borderRadius: BorderRadius.circular(5)),
                                   child: Center(
                                       child: Padding(

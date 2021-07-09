@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
+import 'package:food_app/common/color_resources.dart';
+//import 'package:food_app/constants.dart';
 
 class OrderHistoryPage extends StatelessWidget {
   @override
@@ -8,7 +9,7 @@ class OrderHistoryPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Order History'),
         centerTitle: true,
-        backgroundColor: kGreenColor,
+        backgroundColor: ColorRes.kGreenColor,
       ),
       body: Container(
         child: ListView.builder(

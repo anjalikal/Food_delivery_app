@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
+import 'package:food_app/common/color_resources.dart';
+import 'package:food_app/common/constants.dart';
 import 'cart_page.dart';
-import 'chat_page.dart';
+import 'chat_screen/chat_page.dart';
 import 'home_page.dart';
 import 'profile_page.dart';
 import 'search_page.dart';
@@ -39,7 +40,7 @@ class _IndexPageState extends State<IndexPage> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        color: kGreenColor,
+        color: ColorRes.kGreenColor,
         shape: CircularNotchedRectangle(),
         notchMargin: 8,
         child: Container(
@@ -112,7 +113,7 @@ class _IndexPageState extends State<IndexPage> {
                     onPressed: () {
                       setState(() {
                         currentTab = 2;
-                        currentScreen = ChatPage();
+                        currentScreen = ChatScreen();
                       });
                     },
                     child: Column(

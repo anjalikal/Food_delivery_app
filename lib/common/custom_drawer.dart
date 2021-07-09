@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
+import 'package:food_app/common/color_resources.dart';
+//import 'package:food_app/common/constants.dart';
 import 'package:food_app/pages/order_history_page.dart';
 import 'package:food_app/pages/profile_page.dart';
 import 'package:food_app/pages/select_city_page.dart';
@@ -39,7 +40,7 @@ class CstDrawer extends StatelessWidget {
                     child: CircleAvatar(
                       backgroundImage: AssetImage('images/profile.jpg'),
                       radius: 60,
-                      backgroundColor: kGreenColor,
+                      backgroundColor: ColorRes.kGreenColor,
                     ),
                   ),
                   Positioned(

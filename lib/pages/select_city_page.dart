@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
+import 'package:food_app/common/color_resources.dart';
+import 'package:food_app/common/constants.dart';
 
 class SelectCityPage extends StatefulWidget {
   const SelectCityPage({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
       appBar: AppBar(
         title: Text('Select City'),
         centerTitle: true,
-        backgroundColor: kGreenColor,
+        backgroundColor: ColorRes.kGreenColor,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -36,28 +37,28 @@ class _SelectCityPageState extends State<SelectCityPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 35),
                     child: TextFormField(
                       decoration: InputDecoration(
-                        fillColor: kGreenColor,
+                        fillColor: ColorRes.kGreenColor,
                         hintText: "Search Your City",
                         isDense: true,
                         contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
-                              color: kGreenColor,
+                              color: ColorRes.kGreenColor,
                               width: 2,
                               style: BorderStyle.solid),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: kGreenColor),
+                          borderSide: BorderSide(color: ColorRes.kGreenColor),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: kGreenColor),
+                          borderSide: BorderSide(color: ColorRes.kGreenColor),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         suffixIcon: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            color: kGreenColor,
+                            color: ColorRes.kGreenColor,
                           ),
                           child: Icon(
                             Icons.search_rounded,
@@ -94,7 +95,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
                                 print(city);
                               });
                             },
-                            activeColor: kGreenColor,
+                            activeColor: ColorRes.kGreenColor,
                           ),
                         ),
                         SizedBox(height: 1,child: Divider(thickness: 1,indent: 10, endIndent: 10,)),
@@ -109,7 +110,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
                                 print(city);
                               });
                             },
-                            activeColor: kGreenColor,
+                            activeColor: ColorRes.kGreenColor,
                           ),
                         ),
                         SizedBox(height: 1,child: Divider(thickness: 1,indent: 10, endIndent: 10,)),
@@ -124,7 +125,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
                                 print(city);
                               });
                             },
-                            activeColor: kGreenColor,
+                            activeColor: ColorRes.kGreenColor,
                           ),
                         ),
                         SizedBox(height: 1,child: Divider(thickness: 1,indent: 10, endIndent: 10,)),
@@ -139,7 +140,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
                                 print(city);
                               });
                             },
-                            activeColor: kGreenColor,
+                            activeColor: ColorRes.kGreenColor,
                           ),
                         ),
                         SizedBox(height: 1,child: Divider(thickness: 1,indent: 10, endIndent: 10,)),
@@ -154,7 +155,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
                                 print(city);
                               });
                             },
-                            activeColor: kGreenColor,
+                            activeColor: ColorRes.kGreenColor,
                           ),
                         ),
                       ],
@@ -171,7 +172,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
                         child: Container(
                           width: deviceWidth,
                           decoration: BoxDecoration(
-                              color: kGreenColor,
+                              color: ColorRes.kGreenColor,
                               borderRadius: BorderRadius.circular(5)),
                           child: Center(
                               child: Padding(
