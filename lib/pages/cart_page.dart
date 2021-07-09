@@ -355,25 +355,28 @@ class _CartPageState extends State<CartPage> {
 
   Widget proceedButton(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        width: deviceWidth,
-        decoration: BoxDecoration(
-            color: kGreenColor,
-            borderRadius: BorderRadius.circular(5)),
-        child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: 8.0),
-              child: Text(
-                'Proceed To Checkout',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: GestureDetector(
+        onTap: () {},
+        child: Container(
+          width: deviceWidth,
+          decoration: BoxDecoration(
+              color: kGreenColor,
+              borderRadius: BorderRadius.circular(5)),
+          child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 8.0),
+                child: Text(
+                  'Proceed To Checkout',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            )),
+              )),
+        ),
       ),
     );
   }
