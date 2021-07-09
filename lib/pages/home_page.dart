@@ -1,0 +1,436 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:food_app/constants.dart';
+import 'package:food_app/pages/veg_dishes_page.dart';
+import 'package:food_app/widgets/custom_drawer.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  // this is for Slider Images
+  int current = 0;
+  List imgList = [
+    'images/slider1.jpg',
+    'images/slider2.jpg',
+    'images/slider3.jpg',
+  ];
+
+  // Options List
+  List optionList = [
+    'images/main_f1.png',
+    'images/main_f2.png',
+    'images/main_f3.png',
+    'images/main_f4.png',
+  ];
+  List optionText = [
+    'Veg Dishes',
+    'NonVeg Dishes',
+    'Offers',
+    'New Arrival',
+  ];
+
+  // This is for the Dot Indicator
+  /*List<T> map<T>(List list, Function handler){
+    List<T> result = [];
+  }*/
+
+  @override
+  Widget build(BuildContext context) {
+    // var kDeviceHeight = MediaQuery.of(context).size.height;
+    var kDeviceWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: kGreenColor,
+        title: Image(
+          image: AssetImage('images/logo.png'),
+          width: kDeviceWidth * 0.25,
+        ),
+      ),
+      endDrawer: CstDrawer(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+                height: 200,
+                width: kDeviceWidth,
+                color: Colors.grey,
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                      height: 180,
+                      initialPage: 0,
+                      autoPlay: true,
+                      aspectRatio: 10 / 9,
+
+                      // enlargeCenterPage: true,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          current = index;
+                        });
+                      }),
+                  items: imgList
+                      .map((imgUrl) => Builder(builder: (context) {
+                            return Container(
+                              width: kDeviceWidth,
+                              margin: EdgeInsets.symmetric(horizontal: 10),
+                              decoration: BoxDecoration(
+                                  color: Colors.green,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Image.asset(
+                                imgUrl,
+                                fit: BoxFit.fill,
+                              ),
+                            );
+                          }))
+                      .toList(),
+                )),
+            SizedBox(height: 10),
+            Container(
+              height: 40,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 35),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    fillColor: kGreenColor,
+                    hintText: "Search For Dishes",
+                    isDense: true,
+                    contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: kGreenColor,
+                          width: 2,
+                          style: BorderStyle.solid),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: kGreenColor),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: kGreenColor),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    suffixIcon: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: kGreenColor,
+                      ),
+                      child: Icon(
+                        Icons.search_rounded,
+                        color: Colors.white,
+                        size: 22,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 15),
+            Container(
+              height: 100,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: optionList.length,
+                itemBuilder: (context, int) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => VegDishesPage()));
+                      },
+                      child: Material(
+                        elevation: 8,
+                        borderRadius: BorderRadius.circular(15),
+                        // shadowColor: Colors.grey,
+                        child: Container(
+                          height: 95,
+                          width: 110,
+                          decoration: BoxDecoration(
+                            // color: Colors.green,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  '${optionList[int]}',
+                                  height: 60,
+                                  width: 60,
+                                ),
+                                Text(
+                                  '${optionText[int]}',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(height: 15),
+            Container(
+              height: 190,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      height: 200,
+                      child: Card(
+                        semanticContainer: true,
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        child: Image.asset(
+                          'images/slider3.jpg',
+                          fit: BoxFit.cover,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(80),
+                              topRight: Radius.circular(80)),
+                        ),
+                        elevation: 20,
+                        margin: EdgeInsets.only(top: 10, bottom: 10, right: 10),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Our Best Dishes',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          SizedBox(height: 6),
+                          Container(
+                            child: RatingBar.builder(
+                              initialRating: 4.5,
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              itemSize: 20,
+                              itemPadding: EdgeInsets.symmetric(horizontal: 1),
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star_rounded,
+                                color: Colors.amber,
+                              ),
+                              onRatingUpdate: (rating) {
+                                print(rating);
+                              },
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Container(
+                            child: Text(
+                              '\$150 - 300 Per Person',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Container(
+                            child: Text(
+                              '50% Off On Your First Order',
+                              style: TextStyle(
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            Container(
+              height: 190,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Veg-Nonveg Dishes',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          SizedBox(height: 6),
+                          Container(
+                            child: RatingBar.builder(
+                              initialRating: 4,
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              itemSize: 20,
+                              itemPadding: EdgeInsets.symmetric(horizontal: 1),
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star_rounded,
+                                color: Colors.amber,
+                              ),
+                              onRatingUpdate: (rating) {
+                                print(rating);
+                              },
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Container(
+                            child: Text(
+                              '\400 - 500 Per Person',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Container(
+                            child: Text(
+                              '20% Off On Your First Order',
+                              style: TextStyle(
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      height: 200,
+                      child: Card(
+                        semanticContainer: true,
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        child: Image.asset(
+                          'images/sub_dishes_2.jpg',
+                          fit: BoxFit.cover,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(80),
+                              topLeft: Radius.circular(80)),
+                        ),
+                        elevation: 20,
+                        margin: EdgeInsets.only(left: 10, top: 10, bottom: 10),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 15),
+            Container(
+              height: 190,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      height: 200,
+                      child: Card(
+                        semanticContainer: true,
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        child: Image.asset(
+                          'images/slider2.jpg',
+                          fit: BoxFit.cover,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(80),
+                              topRight: Radius.circular(80)),
+                        ),
+                        elevation: 20,
+                        margin: EdgeInsets.only(top: 10, bottom: 10, right: 10),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    flex: 4,
+                    child: Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Our Best Pizzas',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          SizedBox(height: 6),
+                          Container(
+                            child: RatingBar.builder(
+                              initialRating: 5,
+                              minRating: 1,
+                              direction: Axis.horizontal,
+                              allowHalfRating: true,
+                              itemCount: 5,
+                              itemSize: 20,
+                              itemPadding: EdgeInsets.symmetric(horizontal: 1),
+                              itemBuilder: (context, _) => Icon(
+                                Icons.star_rounded,
+                                color: Colors.amber,
+                              ),
+                              onRatingUpdate: (rating) {
+                                print(rating);
+                              },
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Container(
+                            child: Text(
+                              '\$150 - 300 Per Person',
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Container(
+                            child: Text(
+                              '60% Off On Your First Order',
+                              style: TextStyle(
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
