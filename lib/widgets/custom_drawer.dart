@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/constants.dart';
+import 'package:food_app/pages/order_history_page.dart';
+import 'package:food_app/pages/profile_page.dart';
 import 'package:food_app/pages/select_city_page.dart';
 
 class CstDrawer extends StatelessWidget {
@@ -132,6 +134,7 @@ class CstDrawer extends StatelessWidget {
                       {
                         print('My Account');
                         Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
                       },
                       child: Row(
                         children: [
@@ -150,6 +153,7 @@ class CstDrawer extends StatelessWidget {
                       onTap: () {
                         print('My Order');
                         Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => OrderHistoryPage()));
                         },
                       child: Row(
                         children: [
