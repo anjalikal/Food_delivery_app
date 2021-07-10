@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
+
 import 'package:food_app/pages/checkout_page.dart';
 import 'package:food_app/common/color_resources.dart';
-//import 'package:food_app/constants.dart';
+
 
 class CartPage extends StatefulWidget {
   @override
