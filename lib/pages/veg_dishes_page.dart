@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/widgets/custom_drawer.dart';
+//import 'package:food_app/widgets/custom_drawer.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import '../constants.dart';
+import 'package:food_app/common/color_resources.dart';
+import 'package:food_app/common/custom_drawer.dart';
+import 'package:food_app/pages/product_detail/product_detail_screen.dart';
+import '../common/constants.dart';
 
 class VegDishesPage extends StatelessWidget {
   const VegDishesPage({Key? key}) : super(key: key);
@@ -10,7 +13,7 @@ class VegDishesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kGreenColor,
+        backgroundColor: ColorRes.kGreenColor,
         title: Text('Veg Dishes'),
         centerTitle: true,
         leading: GestureDetector(
@@ -51,7 +54,7 @@ class VegDishesPage extends StatelessWidget {
                                   child: CircleAvatar(
                                     radius: 65,
                                     backgroundImage:
-                                        AssetImage('images/slider1.jpg'),
+                                        AssetImage('assets/images/slider1.jpg'),
                                   ),
                                 ),
                                 SizedBox(height: 10),
@@ -149,61 +152,66 @@ class VegDishesPage extends StatelessWidget {
                       height: 145,
                       child: Column(
                         children: [
-                          Row(
-                            children: [
-                              Material(
-                                elevation: 10,
-                                borderRadius: BorderRadius.circular(15),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8),
-                                  child: Container(
-                                    height: 100,
-                                    width: 115,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    child: Center(
-                                      child: CircleAvatar(
-                                        radius: 70,
-                                        backgroundImage: AssetImage('images/slider2.jpg'),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetailcreen()));
+                            },
+                            child: Row(
+                              children: [
+                                Material(
+                                  elevation: 10,
+                                  borderRadius: BorderRadius.circular(15),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8),
+                                    child: Container(
+                                      height: 100,
+                                      width: 115,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                      child: Center(
+                                        child: CircleAvatar(
+                                          radius: 70,
+                                          backgroundImage: AssetImage('assets/images/slider2.jpg'),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(width: 15),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    width: MediaQuery.of(context).size.width * 0.50,
-                                    child: Text(
-                                      'Yellow Cup Plate',
-                                      style: TextStyle(fontWeight: FontWeight.bold),
-                                      textScaleFactor: 1.1,
-                                      overflow: TextOverflow.ellipsis,
+                                SizedBox(width: 15),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: MediaQuery.of(context).size.width * 0.50,
+                                      child: Text(
+                                        'Yellow Cup Plate',
+                                        style: TextStyle(fontWeight: FontWeight.bold),
+                                        textScaleFactor: 1.1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(height: 5),
-                                  Container(
-                                    width: MediaQuery.of(context).size.width * 0.50,
-                                    child: Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec',
-                                      style: TextStyle(color: Colors.grey),
-                                      overflow: TextOverflow.ellipsis,
-                                      maxLines: 2,
-                                      softWrap: true,
+                                    SizedBox(height: 5),
+                                    Container(
+                                      width: MediaQuery.of(context).size.width * 0.50,
+                                      child: Text(
+                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec',
+                                        style: TextStyle(color: Colors.grey),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
+                                        softWrap: true,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(height: 5),
-                                  Text(
-                                    '\$300',
-                                    style: TextStyle(color: kGreenColor),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    SizedBox(height: 5),
+                                    Text(
+                                      '\$300',
+                                      style: TextStyle(color: ColorRes.kGreenColor),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                           SizedBox(
                             height: 10,

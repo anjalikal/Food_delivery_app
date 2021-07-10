@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/constants.dart';
 import 'package:food_app/pages/checkout_page.dart';
+import 'package:food_app/common/color_resources.dart';
+//import 'package:food_app/constants.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -17,7 +19,7 @@ class _CartPageState extends State<CartPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kGreenColor,
+        backgroundColor: ColorRes.kGreenColor,
         centerTitle: true,
         title: Text('Your Food Cart'),
       ),
@@ -200,27 +202,27 @@ class _CartPageState extends State<CartPage> {
         padding: const EdgeInsets.symmetric(horizontal: 35),
         child: TextFormField(
           decoration: InputDecoration(
-            fillColor: kGreenColor,
+            fillColor: ColorRes.kGreenColor,
             hintText: "Promo Code",
             isDense: true,
             contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
             border: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: kGreenColor, width: 2, style: BorderStyle.solid),
+                  color: ColorRes.kGreenColor, width: 2, style: BorderStyle.solid),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: kGreenColor),
+              borderSide: BorderSide(color: ColorRes.kGreenColor),
               borderRadius: BorderRadius.circular(8),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: kGreenColor),
+              borderSide: BorderSide(color: ColorRes.kGreenColor),
               borderRadius: BorderRadius.circular(8),
             ),
             suffixIcon: Container(
               width: 85,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: kGreenColor,
+                color: ColorRes.kGreenColor,
               ),
               child: Center(
                 child: Text(
@@ -365,7 +367,7 @@ class _CartPageState extends State<CartPage> {
         child: Container(
           width: deviceWidth,
           decoration: BoxDecoration(
-              color: kGreenColor,
+              color: ColorRes.kGreenColor,
               borderRadius: BorderRadius.circular(5)),
           child: Center(
               child: Padding(

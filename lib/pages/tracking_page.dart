@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
+//import 'package:food_app/constants.dart';
+import 'package:food_app/common/color_resources.dart';
 
 class TrackingPage extends StatelessWidget {
   @override
@@ -8,7 +9,7 @@ class TrackingPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Tracking'),
         centerTitle: true,
-        backgroundColor: kGreenColor,
+        backgroundColor: ColorRes.kGreenColor,
       ),
       body: Column(
         children: [
@@ -38,7 +39,7 @@ class TrackingPage extends StatelessWidget {
           children: [
             Icon(
               Icons.storefront_rounded,
-              color: kGreenColor,
+              color: ColorRes.kGreenColor,
               size: 30,
             ),
             SizedBox(height: 10),
@@ -115,7 +116,7 @@ class TrackingPage extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                      color: kGreenColor,
+                      color: ColorRes.kGreenColor,
                       borderRadius: BorderRadius.circular(5)),
                   child: Center(
                       child: Padding(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/constants.dart';
 import 'package:food_app/pages/order_status_page.dart';
+import 'package:food_app/common/color_resources.dart';
+import 'package:food_app/common/constants.dart';
 
 enum DeliveryWay { Delivery, Pickup }
 enum PaymentMethod {COD, Cards, Paypal}
@@ -23,7 +25,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
       appBar: AppBar(
         title: Text('Checkout'),
         centerTitle: true,
-        backgroundColor: kGreenColor,
+        backgroundColor: ColorRes.kGreenColor,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -57,7 +59,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: dWay == DeliveryWay.Delivery
-                                        ? kGreenColor
+                                        ? ColorRes.kGreenColor
                                         : Colors.black,
                                   ),
                                 ),
@@ -70,7 +72,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                       print(dWay);
                                     });
                                   },
-                                  activeColor: kGreenColor,
+                                  activeColor: ColorRes.kGreenColor,
                                 ),
                               ),
                               ListTile(
@@ -79,7 +81,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: dWay == DeliveryWay.Pickup
-                                        ? kGreenColor
+                                        ? ColorRes.kGreenColor
                                         : Colors.black,
                                   ),
                                 ),
@@ -92,7 +94,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                       print(dWay);
                                     });
                                   },
-                                  activeColor: kGreenColor,
+                                  activeColor: ColorRes.kGreenColor,
                                 ),
                               ),
                             ],
@@ -136,7 +138,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                       }
                                     },
                                     maxLines: 4,
-                                    cursorColor: kGreenColor,
+                                    cursorColor: ColorRes.kGreenColor,
                                     decoration: InputDecoration(
                                       focusedBorder: InputBorder.none,
                                       enabledBorder: InputBorder.none
@@ -175,7 +177,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                 children: [
                                   Container(
                                     child: Radio(
-                                      activeColor: kGreenColor,
+                                      activeColor: ColorRes.kGreenColor,
                                       value: PaymentMethod.COD,
                                       groupValue: pMethod,
                                       onChanged: (PaymentMethod? value){
@@ -200,7 +202,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                 children: [
                                   Container(
                                     child: Radio(
-                                      activeColor: kGreenColor,
+                                      activeColor: ColorRes.kGreenColor,
                                       value: PaymentMethod.Cards,
                                       groupValue: pMethod,
                                       onChanged: (PaymentMethod? value){
@@ -225,7 +227,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                 children: [
                                   Container(
                                     child: Radio(
-                                      activeColor: kGreenColor,
+                                      activeColor: ColorRes.kGreenColor,
                                       value: PaymentMethod.Paypal,
                                       groupValue: pMethod,
                                       onChanged: (PaymentMethod? value){
@@ -267,7 +269,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                       child: Container(
                         width: deviceWidth,
                         decoration: BoxDecoration(
-                            color: kGreenColor,
+                            color: ColorRes.kGreenColor,
                             borderRadius: BorderRadius.circular(5)),
                         child: Center(
                             child: Padding(

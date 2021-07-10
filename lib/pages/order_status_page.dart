@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
+import 'package:food_app/common/color_resources.dart';
+//import 'package:food_app/constants.dart';
 
 class OrderStatusPage extends StatelessWidget {
   const OrderStatusPage({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class OrderStatusPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Order Status'),
         centerTitle: true,
-        backgroundColor: kGreenColor,
+        backgroundColor: ColorRes.kGreenColor,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -148,7 +149,7 @@ class OrderStatusPage extends StatelessWidget {
                               ),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: kGreenColor,
+                                color: ColorRes.kGreenColor,
                               ),
                             ),
                           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
+import 'package:food_app/common/color_resources.dart';
+///import 'package:food_app/constants.dart';
 
 class EditAccountPage extends StatelessWidget {
 
@@ -10,7 +11,7 @@ class EditAccountPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Edit Account'),
         centerTitle: true,
-        backgroundColor: kGreenColor,
+        backgroundColor: ColorRes.kGreenColor,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -45,7 +46,7 @@ class EditAccountPage extends StatelessWidget {
             bottom: 17,
             child: Container(
               decoration: BoxDecoration(
-                color: kGreenColor,
+                color: ColorRes.kGreenColor,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Icon(
@@ -69,7 +70,7 @@ class EditAccountPage extends StatelessWidget {
             child: Container(
               height: 50,
               child: TextFormField(
-                cursorColor: kGreenColor,
+                cursorColor: ColorRes.kGreenColor,
                 maxLines: 1,
                 decoration: InputDecoration(
                   hintText: "User Name",
@@ -85,7 +86,7 @@ class EditAccountPage extends StatelessWidget {
             child: Container(
               height: 50,
               child: TextFormField(
-                cursorColor: kGreenColor,
+                cursorColor: ColorRes.kGreenColor,
                 maxLines: 1,
                 decoration: InputDecoration(
                   hintText: "Phone No.",
@@ -101,7 +102,7 @@ class EditAccountPage extends StatelessWidget {
             child: Container(
               height: 50,
               child: TextFormField(
-                cursorColor: kGreenColor,
+                cursorColor: ColorRes.kGreenColor,
                 maxLines: 1,
                 decoration: InputDecoration(
                   hintText: "Email",
@@ -117,7 +118,7 @@ class EditAccountPage extends StatelessWidget {
             child: Container(
               height: 50,
               child: TextFormField(
-                cursorColor: kGreenColor,
+                cursorColor: ColorRes.kGreenColor,
                 maxLines: 1,
                 decoration: InputDecoration(
                   hintText: "Address",
@@ -147,7 +148,7 @@ class EditAccountPage extends StatelessWidget {
             child: Container(
               width: deviceWidth * 0.45,
               decoration: BoxDecoration(
-                  color: kGreenColor, borderRadius: BorderRadius.circular(5)),
+                  color: ColorRes.kGreenColor, borderRadius: BorderRadius.circular(5)),
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
@@ -169,7 +170,7 @@ class EditAccountPage extends StatelessWidget {
             child: Container(
               width: deviceWidth * 0.28,
               decoration: BoxDecoration(
-                  color: kGreenColor, borderRadius: BorderRadius.circular(5)),
+                  color: ColorRes.kGreenColor, borderRadius: BorderRadius.circular(5)),
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
@@ -230,7 +231,7 @@ class EditAccountPage extends StatelessWidget {
                       height: 50,
                       child: TextFormField(
                         controller: oldPassController,
-                        cursorColor: kGreenColor,
+                        cursorColor: ColorRes.kGreenColor,
                         maxLines: 1,
                         validator: (value){
                           if(value!.isEmpty || value.length == null){
@@ -255,7 +256,7 @@ class EditAccountPage extends StatelessWidget {
                       height: 50,
                       child: TextFormField(
                         controller: newPassController,
-                        cursorColor: kGreenColor,
+                        cursorColor: ColorRes.kGreenColor,
                         maxLines: 1,
                         validator: (value){
                           if(value!.isEmpty || value.length == null){
@@ -282,7 +283,7 @@ class EditAccountPage extends StatelessWidget {
                       height: 50,
                       child: TextFormField(
                         controller: newCPassController,
-                        cursorColor: kGreenColor,
+                        cursorColor: ColorRes.kGreenColor,
                         maxLines: 1,
                         validator: (value){
                           if(value!.isEmpty || value.length == null){
@@ -321,7 +322,7 @@ class EditAccountPage extends StatelessWidget {
                     child: Container(
                       width: deviceWidth,
                       decoration: BoxDecoration(
-                          color: kGreenColor,
+                          color: ColorRes.kGreenColor,
                           borderRadius: BorderRadius.circular(5)),
                       child: Center(
                           child: Padding(

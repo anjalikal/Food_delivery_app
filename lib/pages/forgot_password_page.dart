@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/common/color_resources.dart';
 
-import '../constants.dart';
+import '../common/constants.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
 
@@ -80,11 +81,11 @@ class ForgotPasswordPage extends StatelessWidget {
                                     return "Email Should be Valid";
                                   }
                                 },
-                                cursorColor: kGreenColor,
+                                cursorColor: ColorRes.kGreenColor,
                                 decoration: InputDecoration(
                                   hintText: "Email",
                                   focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(color: kGreenColor),
+                                    borderSide: BorderSide(color: ColorRes.kGreenColor),
                                   ),
                                 ),
                               ),
@@ -103,7 +104,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                 child: Container(
                                   width: deviceWidth,
                                   decoration: BoxDecoration(
-                                      color: kGreenColor,
+                                      color: ColorRes.kGreenColor,
                                       borderRadius: BorderRadius.circular(5)),
                                   child: Center(
                                       child: Padding(

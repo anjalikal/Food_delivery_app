@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
+import 'package:food_app/common/color_resources.dart';
+import 'package:food_app/common/constants.dart';
+import 'package:food_app/common/custom_drawer.dart';
 import 'package:food_app/pages/veg_dishes_page.dart';
-import 'package:food_app/widgets/custom_drawer.dart';
+//import 'package:food_app/widgets/custom_drawer.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,17 +17,17 @@ class _HomePageState extends State<HomePage> {
   // this is for Slider Images
   int current = 0;
   List imgList = [
-    'images/slider1.jpg',
-    'images/slider2.jpg',
-    'images/slider3.jpg',
+    'assets/images/slider1.jpg',
+    'assets/images/slider2.jpg',
+    'assets/images/slider3.jpg',
   ];
 
   // Options List
   List optionList = [
-    'images/main_f1.png',
-    'images/main_f2.png',
-    'images/main_f3.png',
-    'images/main_f4.png',
+    'assets/images/main_f1.png',
+    'assets/images/main_f2.png',
+    'assets/images/main_f3.png',
+    'assets/images/main_f4.png',
   ];
   List optionText = [
     'Veg Dishes',
@@ -46,9 +48,9 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kGreenColor,
+        backgroundColor: ColorRes.kGreenColor,
         title: Image(
-          image: AssetImage('images/logo.png'),
+          image: AssetImage('assets/images/logo.png'),
           width: kDeviceWidth * 0.25,
         ),
       ),
@@ -96,28 +98,28 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.symmetric(horizontal: 35),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    fillColor: kGreenColor,
+                    fillColor: ColorRes.kGreenColor,
                     hintText: "Search For Dishes",
                     isDense: true,
                     contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: kGreenColor,
+                          color: ColorRes.kGreenColor,
                           width: 2,
                           style: BorderStyle.solid),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: kGreenColor),
+                      borderSide: BorderSide(color: ColorRes.kGreenColor),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: kGreenColor),
+                      borderSide: BorderSide(color: ColorRes.kGreenColor),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     suffixIcon: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: kGreenColor,
+                        color: ColorRes.kGreenColor,
                       ),
                       child: Icon(
                         Icons.search_rounded,
@@ -190,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                         semanticContainer: true,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         child: Image.asset(
-                          'images/slider3.jpg',
+                          'assets/images/slider3.jpg',
                           fit: BoxFit.cover,
                         ),
                         shape: RoundedRectangleBorder(
@@ -328,7 +330,7 @@ class _HomePageState extends State<HomePage> {
                         semanticContainer: true,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         child: Image.asset(
-                          'images/sub_dishes_2.jpg',
+                          'assets/images/sub_dishes_2.jpg',
                           fit: BoxFit.cover,
                         ),
                         shape: RoundedRectangleBorder(
@@ -358,7 +360,7 @@ class _HomePageState extends State<HomePage> {
                         semanticContainer: true,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         child: Image.asset(
-                          'images/slider2.jpg',
+                          'assets/images/slider2.jpg',
                           fit: BoxFit.cover,
                         ),
                         shape: RoundedRectangleBorder(
