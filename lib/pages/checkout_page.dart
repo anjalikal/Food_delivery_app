@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/constants.dart';
+import 'package:food_app/pages/order_status_page.dart';
 
 enum DeliveryWay { Delivery, Pickup }
 enum PaymentMethod {COD, Cards, Paypal}
@@ -254,6 +255,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                   SizedBox(height: 15),
                   GestureDetector(
                     onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> OrderStatusPage()));
                       if(formKey.currentState!.validate()){
                         print('Clicked Print : $dWay');
                         print('Clicked Print : $pMethod');

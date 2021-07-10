@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/constants.dart';
+import 'package:food_app/pages/checkout_page.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -358,7 +359,9 @@ class _CartPageState extends State<CartPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> CheckOutPage()));
+        },
         child: Container(
           width: deviceWidth,
           decoration: BoxDecoration(

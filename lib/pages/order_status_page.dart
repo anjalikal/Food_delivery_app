@@ -141,9 +141,11 @@ class OrderStatusPage extends StatelessWidget {
                             Container(
                               height: 30,
                               width: 30,
-                              child: Icon(Icons.location_on_rounded,
-                              color: Colors.white,
-                              size: 20,),
+                              child: Icon(
+                                Icons.location_on_rounded,
+                                color: Colors.white,
+                                size: 20,
+                              ),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: kGreenColor,

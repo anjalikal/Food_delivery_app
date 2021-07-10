@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/pages/IndexPage.dart';
+import 'package:food_app/pages/cart_page.dart';
 import 'package:food_app/pages/checkout_page.dart';
 import 'package:food_app/pages/edit_account_page.dart';
 import 'package:food_app/pages/forgot_password_page.dart';
