@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/common/images_path.dart';
 
 import 'package:food_app/pages/order_status_page.dart';
 import 'package:food_app/common/color_resources.dart';
-import 'package:food_app/common/constants.dart';
 
 enum DeliveryWay { Delivery, Pickup }
 enum PaymentMethod {COD, Cards, Paypal}
@@ -190,7 +190,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset('images/cod.png',width: 30, height: 30,),
+                                      Image.asset(ImagePath.cod,width: 30, height: 30,),
                                       SizedBox(height: 5),
                                       Text('Cash On Delivery',textScaleFactor: 1.1,),
                                     ],
@@ -215,7 +215,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset('images/card.png',width: 30, height: 30,),
+                                      Image.asset(ImagePath.card,width: 30, height: 30,),
                                       SizedBox(height: 5),
                                       Text('Credit Or Debit Card',textScaleFactor: 1.1,),
                                     ],
@@ -240,7 +240,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
                                   Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset('images/paypal.png',width: 30, height: 30,),
+                                      Image.asset(ImagePath.paypal,width: 30, height: 30,),
                                       SizedBox(height: 5),
                                       Text('Paypal',textScaleFactor: 1.1,),
                                     ],

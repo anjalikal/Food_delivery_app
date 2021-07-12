@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-//import 'package:food_app/widgets/custom_drawer.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:food_app/common/color_resources.dart';
 import 'package:food_app/common/custom_drawer.dart';
+import 'package:food_app/common/images_path.dart';
 import 'package:food_app/pages/product_detail/product_detail_screen.dart';
-import '../common/constants.dart';
 
 class VegDishesPage extends StatelessWidget {
   const VegDishesPage({Key? key}) : super(key: key);
@@ -54,7 +53,7 @@ class VegDishesPage extends StatelessWidget {
                                   child: CircleAvatar(
                                     radius: 65,
                                     backgroundImage:
-                                        AssetImage('assets/images/slider1.jpg'),
+                                        AssetImage(ImagePath.slider1),
                                   ),
                                 ),
                                 SizedBox(height: 10),
@@ -172,7 +171,7 @@ class VegDishesPage extends StatelessWidget {
                                       child: Center(
                                         child: CircleAvatar(
                                           radius: 70,
-                                          backgroundImage: AssetImage('assets/images/slider2.jpg'),
+                                          backgroundImage: AssetImage(ImagePath.slider2),
                                         ),
                                       ),
                                     ),

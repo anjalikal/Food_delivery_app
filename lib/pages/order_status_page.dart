@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
+import 'package:food_app/common/images_path.dart';
 //import 'package:food_app/constants.dart';
 
 class OrderStatusPage extends StatelessWidget {
@@ -57,7 +58,7 @@ class OrderStatusPage extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
-                image: AssetImage('images/cutlery.png'),
+                image: AssetImage(ImagePath.cutlery),
                 fit: BoxFit.cover,
               ),
             ),

@@ -1,6 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-//import 'package:food_app/constants.dart';
 import 'package:food_app/common/color_resources.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class TrackingPage extends StatelessWidget {
   @override
@@ -22,11 +24,25 @@ class TrackingPage extends StatelessWidget {
   }
 
   Widget mapIntegration(BuildContext context) {
+    final CameraPosition _kGooglePlex = CameraPosition(
+      target: LatLng(21.1860, 72.7944),
+      // zoom: 14.4746,
+    );
+    Completer<GoogleMapController> _controller = Completer();
+
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.45,
       decoration: BoxDecoration(
         color: Colors.grey,
+      ),
+      child: GoogleMap(
+        mapType: MapType.normal,
+        initialCameraPosition: _kGooglePlex,
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+        },
+        myLocationEnabled: true,
       ),
     );
   }

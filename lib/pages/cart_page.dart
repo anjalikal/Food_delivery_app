@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/common/images_path.dart';
 
 import 'package:food_app/pages/checkout_page.dart';
 import 'package:food_app/common/color_resources.dart';
@@ -74,7 +75,7 @@ class _CartPageState extends State<CartPage> {
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   image: DecorationImage(
-                                    image: AssetImage('images/cart_img.jpg'),
+                                    image: AssetImage(ImagePath.food_img),
                                     fit: BoxFit.cover,
                                   )),
                             ),
@@ -86,7 +87,7 @@ class _CartPageState extends State<CartPage> {
                               children: [
                                 Container(
                                   child: Text(
-                                    'Product Name ',
+                                    'Product Name',
                                     softWrap: true,
                                     maxLines: 1,
                                     style: TextStyle(

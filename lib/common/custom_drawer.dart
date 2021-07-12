@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
-//import 'package:food_app/common/constants.dart';
+import 'package:food_app/common/images_path.dart';
 import 'package:food_app/pages/order_history_page.dart';
 import 'package:food_app/pages/profile_page.dart';
 import 'package:food_app/pages/select_city_page.dart';
@@ -25,7 +25,7 @@ class CstDrawer extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Color(0xFF000000),
                 image: DecorationImage(
-                  image: AssetImage('images/drawerimg.jpg'),
+                  image: AssetImage(ImagePath.drawerimg),
                   fit: BoxFit.cover,
                   colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.5), BlendMode.dstATop),
@@ -38,7 +38,7 @@ class CstDrawer extends StatelessWidget {
                   Container(
                     transform: Matrix4.translationValues(0, -65, 0),
                     child: CircleAvatar(
-                      backgroundImage: AssetImage('images/profile.jpg'),
+                      backgroundImage: AssetImage(ImagePath.profile),
                       radius: 60,
                       backgroundColor: ColorRes.kGreenColor,
                     ),

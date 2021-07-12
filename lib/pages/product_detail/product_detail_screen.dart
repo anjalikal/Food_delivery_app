@@ -85,7 +85,8 @@ class _ProductDetailcreenState extends State<ProductDetailcreen> with SingleTick
         Container(
           //height: 200,
           //width: MediaQuery.of(context).size.width,
-          child: Image.asset(ImagePath.food_img,fit: BoxFit.cover,
+          child: Image.asset(ImagePath.food_img,
+            fit: BoxFit.cover,
             height: MediaQuery.of(context).size.height/3.5,
             width: MediaQuery.of(context).size.width,),
         ),
@@ -212,7 +213,7 @@ class _ProductDetailcreenState extends State<ProductDetailcreen> with SingleTick
                     ),
                   )
                 ],
-              )
+              ),
             ],
           )
         ],

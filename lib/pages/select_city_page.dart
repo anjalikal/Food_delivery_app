@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
-import 'package:food_app/common/constants.dart';
 
 class SelectCityPage extends StatefulWidget {
   const SelectCityPage({Key? key}) : super(key: key);

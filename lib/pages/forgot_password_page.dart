@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
-
-import '../common/constants.dart';
+import 'package:food_app/common/images_path.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
 
@@ -26,7 +25,7 @@ class ForgotPasswordPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.black,
                   image: DecorationImage(
-                    image: AssetImage('images/signin.jpg'),
+                    image: AssetImage(ImagePath.singin),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.5),
@@ -97,8 +96,7 @@ class ForgotPasswordPage extends StatelessWidget {
                                       .toString()
                                       .toLowerCase();
 
-                                  print(
-                                      'Pressed on Sign in $email');
+                                  print('Pressed on Sign in $email');
                                   if (formKey.currentState!.validate()) {}
                                 },
                                 child: Container(

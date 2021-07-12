@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
-
-import '../common/constants.dart';
+import 'package:food_app/common/images_path.dart';
 
 class SignUpPage extends StatelessWidget {
 
@@ -30,7 +29,7 @@ class SignUpPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.black,
                   image: DecorationImage(
-                    image: AssetImage('images/signin.jpg'),
+                    image: AssetImage(ImagePath.singin),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.5),

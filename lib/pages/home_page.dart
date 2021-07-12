@@ -2,10 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
-import 'package:food_app/common/constants.dart';
 import 'package:food_app/common/custom_drawer.dart';
+import 'package:food_app/common/images_path.dart';
 import 'package:food_app/pages/veg_dishes_page.dart';
-//import 'package:food_app/widgets/custom_drawer.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,17 +16,17 @@ class _HomePageState extends State<HomePage> {
   // this is for Slider Images
   int current = 0;
   List imgList = [
-    'assets/images/slider1.jpg',
-    'assets/images/slider2.jpg',
-    'assets/images/slider3.jpg',
+    ImagePath.slider1,
+    ImagePath.slider2,
+    ImagePath.slider3,
   ];
 
   // Options List
   List optionList = [
-    'assets/images/main_f1.png',
-    'assets/images/main_f2.png',
-    'assets/images/main_f3.png',
-    'assets/images/main_f4.png',
+    ImagePath.main_f1,
+    ImagePath.main_f2,
+    ImagePath.main_f3,
+    ImagePath.main_f4,
   ];
   List optionText = [
     'Veg Dishes',
@@ -50,7 +49,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: ColorRes.kGreenColor,
         title: Image(
-          image: AssetImage('assets/images/logo.png'),
+          image: AssetImage(ImagePath.logo),
           width: kDeviceWidth * 0.25,
         ),
       ),
@@ -68,7 +67,6 @@ class _HomePageState extends State<HomePage> {
                       initialPage: 0,
                       autoPlay: true,
                       aspectRatio: 10 / 9,
-
                       // enlargeCenterPage: true,
                       onPageChanged: (index, reason) {
                         setState(() {
@@ -141,18 +139,19 @@ class _HomePageState extends State<HomePage> {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => VegDishesPage()));
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => VegDishesPage()));
                       },
                       child: Material(
                         elevation: 8,
                         borderRadius: BorderRadius.circular(15),
-                        // shadowColor: Colors.grey,
                         child: Container(
                           height: 95,
                           width: 110,
                           decoration: BoxDecoration(
-                            // color: Colors.green,
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Center(
@@ -192,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                         semanticContainer: true,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         child: Image.asset(
-                          'assets/images/slider3.jpg',
+                          ImagePath.slider1,
                           fit: BoxFit.cover,
                         ),
                         shape: RoundedRectangleBorder(
@@ -330,7 +329,7 @@ class _HomePageState extends State<HomePage> {
                         semanticContainer: true,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         child: Image.asset(
-                          'assets/images/sub_dishes_2.jpg',
+                          ImagePath.sub_dishes_2,
                           fit: BoxFit.cover,
                         ),
                         shape: RoundedRectangleBorder(
@@ -360,7 +359,7 @@ class _HomePageState extends State<HomePage> {
                         semanticContainer: true,
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         child: Image.asset(
-                          'assets/images/slider2.jpg',
+                          ImagePath.slider2,
                           fit: BoxFit.cover,
                         ),
                         shape: RoundedRectangleBorder(

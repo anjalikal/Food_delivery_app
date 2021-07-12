@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
-import 'package:food_app/common/constants.dart';
+import 'package:food_app/common/images_path.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
                   color: Colors.black,
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                    image: AssetImage('assets/images/profile_page_img.jpg'),
+                    image: AssetImage(ImagePath.profile_page_img),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.5),
@@ -69,7 +69,7 @@ class ProfilePage extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                        image: AssetImage('assets/images/profile.jpg'),
+                        image: AssetImage(ImagePath.profile),
                         fit: BoxFit.cover,
                       ),
                     ),
