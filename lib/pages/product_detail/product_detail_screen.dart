@@ -291,7 +291,7 @@ class _ProductDetailcreenState extends State<ProductDetailcreen> with SingleTick
               initialIndex: 1,
               length: 2,
               child: Container(
-                height: MediaQuery.of(context).size.height /3.2,
+                height: MediaQuery.of(context).size.height /5,
                 child: TabBarView(
                   physics: ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
                   dragStartBehavior: DragStartBehavior.start,
@@ -318,7 +318,7 @@ class _ProductDetailcreenState extends State<ProductDetailcreen> with SingleTick
   dishListView(){
     return Container(
       height: 230,
-      margin: EdgeInsets.only(top: 10),
+      margin: EdgeInsets.only(top: 10, bottom: 10),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 6,

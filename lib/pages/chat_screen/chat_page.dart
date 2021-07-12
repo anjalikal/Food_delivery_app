@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
+import 'package:food_app/model/message_model.dart';
+import 'package:food_app/pages/chat_screen/chat_screen_view_model.dart';
 
 class ChatScreen extends StatefulWidget {
 
@@ -8,11 +10,11 @@ class ChatScreen extends StatefulWidget {
 }
 
 class ChatScreenState extends State<ChatScreen> {
-
-
+   ChatScreenViewModel? model;
+   TextEditingController typeTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    //model ?? (model = ChatScreenViewModel(this));
+    model ?? (model = ChatScreenViewModel(this));
     print("Current page --> $runtimeType");
 
     return Scaffold(
@@ -62,13 +64,13 @@ class ChatScreenState extends State<ChatScreen> {
     return Container(
       height: MediaQuery.of(context).size.height/1.3,
       child: ListView.builder(
-          itemCount: 5,
+          itemCount: model!.smsData.length +1,
           itemBuilder: (context, index) {
-            bool isLast = index==5;
+            bool isLast = index==model?.smsData.length;
             if(isLast) {
               return SizedBox(height: 70);
             } else {
-              if(1 == '1' ) {
+              if(model!.smsData[index].senderId == '1' ) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -88,13 +90,13 @@ class ChatScreenState extends State<ChatScreen> {
                       child: Column(
                         children: [
                           Container(
-                            child: Text("bkjdbjkd",
+                            child: Text(model!.smsData[index].message,
                               style: TextStyle(color: Colors.white, fontSize: 15),),
                           ),
                           Container(
                             alignment: Alignment.topRight,
                             padding: EdgeInsets.only(right: 10),
-                            child: Text("12:00 pm",
+                            child: Text(model!.smsData[index].time,
                               style: TextStyle(color: Colors.white, fontSize: 13),),
                           )
                         ],
@@ -105,82 +107,45 @@ class ChatScreenState extends State<ChatScreen> {
               } else {
                 return Row(
                   children: [
-                    /*Column(
+                    Column(
                       children: [
                         SizedBox(height: 50,),
 
-                        // Container(
-                        //   padding: EdgeInsets.only(left: 10, right: 10, top: 10),
-                        //   child: ClipRRect(
-                        //     borderRadius: BorderRadius.circular(60),
-                        //     child: Image.asset(
-                        //       model.smsData[index].image, height: 30,),
-                        //   ),
-                        // ),
+                        /*Container(
+                          padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(60),
+                            child: Image.asset(
+                              model.smsData[index].image, height: 30,),
+                          ),
+                        ),*/
                       ],
-                    ),*/
-                    Container(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width / 1.7,
-                      padding: EdgeInsets.only(bottom: 5),
-                      margin: EdgeInsets.only(top: 15, right: 10),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: EdgeInsets.only(
-                                left: 10, right: 10, bottom: 5, top: 5),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.grey.shade400
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  child: Text("dsd",
-                                    style: TextStyle(
-                                        color: Colors.black, fontSize: 15),),
-                                ),
-
-                                Container(
-                                  height: 20,
-                                  width: 60,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: Colors.pink.shade400
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      "sjbj", style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white
-                                    ),),
-                                  ),
-                                ),
-                              ],
-                            ),
-
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: MediaQuery
+                              .of(context)
+                              .size
+                              .width / 1.7,
+                          padding: EdgeInsets.only(bottom: 5),
+                          margin: EdgeInsets.only(top: 15, right: 10),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: ColorRes.lightGreenColor
                           ),
-
-                          Container(
+                          child: Container(
                             padding: EdgeInsets.only(left: 10, top: 5),
-                            child: Text("kdjkjk"),
+                            child: Text(model!.smsData[index].message),
                           ),
-
-                          Container(
-                            padding: EdgeInsets.only(left: 10, top: 5),
-                            child: Text("12"),
-                          )
-                        ],
-                      ),
+                        ),
+                        Container(
+                          //alignment: Alignment.topLeft,
+                          padding: EdgeInsets.only(left: 10, top: 5),
+                          child: Text(model!.smsData[index].time),
+                        )
+                      ],
                     )
                   ],
                 );
@@ -213,7 +178,7 @@ class ChatScreenState extends State<ChatScreen> {
                   color: Colors.grey.shade200
               ),*/
               child: TextFormField(
-                //controller: typeTextController,
+                controller: typeTextController,
                 decoration: InputDecoration(
                     hintText: "Type Your message",
                     contentPadding: EdgeInsets.only(left: 10),
@@ -257,12 +222,27 @@ class ChatScreenState extends State<ChatScreen> {
           SizedBox(width: 5,),
           Icon(Icons.picture_in_picture, color: Colors.grey, size: 22),
           SizedBox(width: 5,),
-          CircleAvatar(
-            radius: 15,
-            backgroundColor: Colors.orangeAccent,
-            //child: Icon(Icons.send)
-            child: ClipOval(
-                child: Icon(Icons.send, color: Colors.white,)
+          GestureDetector(
+            onTap: (){
+              model!.smsData.add(MessageModel(
+                 // name: "Will",
+                  senderId: '1',
+                  message: typeTextController.text,
+                  time: "10:05 AM",
+                 // date: "2020-01-20",
+                 // image: ImagePath.profile,
+                 // relation: "Staff"
+              ));
+              typeTextController.clear();
+              setState(() {});
+            },
+            child: CircleAvatar(
+              radius: 15,
+              backgroundColor: Colors.orangeAccent,
+              //child: Icon(Icons.send)
+              child: ClipOval(
+                  child: Icon(Icons.send, color: Colors.white,)
+              ),
             ),
           ),
         ],
