@@ -5,6 +5,7 @@ import 'chat_screen/chat_page.dart';
 import 'home_page.dart';
 import 'profile_page.dart';
 import 'search_page.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class IndexPage extends StatefulWidget {
 
@@ -13,16 +14,43 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
-  int currentTab = 4;
 
+  /*int currentTab = 4;
   Widget currentScreen = HomePage();
+  final PageStorageBucket bucket = PageStorageBucket();*/
 
-  final PageStorageBucket bucket = PageStorageBucket();
+  int selectedIndex = 2;
+  final screens = [CartPage(), SearchPage(), HomePage(), ChatScreen(), ProfilePage()];
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageStorage(
+
+      body: screens[selectedIndex],
+      bottomNavigationBar: CurvedNavigationBar(
+        index: selectedIndex,
+        items: [
+          Icon(Icons.shopping_cart_rounded, size: 28, color: Colors.white),
+          Icon(Icons.search_rounded, size: 28, color: Colors.white),
+          Icon(Icons.home_rounded, size: 28, color: Colors.white),
+          Icon(Icons.chat_bubble_outlined, size: 28, color: Colors.white),
+          Icon(Icons.person_rounded, size: 28, color: Colors.white),
+        ],
+        onTap: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+        // animationCurve: Curves.bounceInOut,
+        animationDuration: Duration(milliseconds: 500),
+        backgroundColor: Colors.orangeAccent,
+        color: ColorRes.kGreenColor,
+        buttonBackgroundColor: Colors.transparent,height: 60,
+      ),
+
+
+      /*body: PageStorage(
         child: currentScreen,
         bucket: bucket,
       ),
@@ -177,7 +205,7 @@ class _IndexPageState extends State<IndexPage> {
             ],
           ),
         ),
-      ),
+      ),*/
     );
   }
 }

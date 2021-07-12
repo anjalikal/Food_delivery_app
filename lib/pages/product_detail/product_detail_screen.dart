@@ -41,8 +41,8 @@ class _ProductDetailcreenState extends State<ProductDetailcreen> with SingleTick
   appBar(){
     return Container(
       color: ColorRes.kGreenColor,
-      height: 118,
-      padding: EdgeInsets.only(top: 60, left: 10, right: 10),
+      height: 110,
+      padding: EdgeInsets.only(top: 45, left: 10, right: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
@@ -6,6 +5,8 @@ import 'package:food_app/common/custom_drawer.dart';
 import 'package:food_app/common/images_path.dart';
 import 'package:food_app/pages/veg_dishes_page.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_card_swipper/flutter_card_swiper.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -61,40 +62,40 @@ class _HomePageState extends State<HomePage> {
                 height: 200,
                 width: kDeviceWidth,
                 color: Colors.grey,
-                child: CarouselSlider(
-                  options: CarouselOptions(
-                      height: 180,
-                      initialPage: 0,
-                      autoPlay: true,
-                      aspectRatio: 10 / 9,
-                      // enlargeCenterPage: true,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          current = index;
-                        });
-                      }),
-                  items: imgList
-                      .map((imgUrl) => Builder(builder: (context) {
-                            return Container(
-                              width: kDeviceWidth,
-                              margin: EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                  color: Colors.green,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Image.asset(
-                                imgUrl,
-                                fit: BoxFit.fill,
-                              ),
-                            );
-                          }))
-                      .toList(),
-                )),
+                child: Swiper(
+                  autoplayDisableOnInteraction: true,
+                  autoplay: true,
+                  duration: 6000,
+                  loop: false,
+                  physics: BouncingScrollPhysics(),
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      // padding: EdgeInsets.only(left: 10, right: 10),
+                      //child: Image.network(model.bannerListData.data[index].image)
+                      child: Image(
+                        image: AssetImage(imgList[index]),
+                        fit: BoxFit.cover,
+                      ),
+                    );
+                  },
+                  pagination: SwiperPagination(
+                    builder: DotSwiperPaginationBuilder(
+                      activeColor: ColorRes.kGreenColor,
+                      color: Colors.white54,
+                      activeSize: 12,
+                      size: 6
+                    ),
+                  ),
+                ),
+            ),
             SizedBox(height: 10),
             Container(
               height: 40,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 35),
                 child: TextFormField(
+                  cursorColor: ColorRes.kGreenColor,
                   decoration: InputDecoration(
                     fillColor: ColorRes.kGreenColor,
                     hintText: "Search For Dishes",
@@ -179,254 +180,178 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 15),
             Container(
-              height: 190,
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      height: 200,
-                      child: Card(
-                        semanticContainer: true,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Image.asset(
-                          ImagePath.slider1,
-                          fit: BoxFit.cover,
+              child: ListView.builder(
+                shrinkWrap: true,
+                physics: BouncingScrollPhysics(),
+                itemCount: 4,
+                itemBuilder: (context, int){
+                  return int % 2 == 0 ? Container(
+                    height: 190,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 4,
+                          child: Container(
+                            height: 200,
+                            child: Card(
+                              semanticContainer: true,
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              child: Image.asset(
+                                ImagePath.slider1,
+                                fit: BoxFit.cover,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                    bottomRight: Radius.circular(80),
+                                    topRight: Radius.circular(80)),
+                              ),
+                              elevation: 20,
+                              margin: EdgeInsets.only(top: 10, bottom: 10, right: 10),
+                            ),
+                          ),
                         ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(80),
-                              topRight: Radius.circular(80)),
+                        SizedBox(width: 10),
+                        Expanded(
+                          flex: 4,
+                          child: Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Our Best Dishes',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 20),
+                                ),
+                                SizedBox(height: 6),
+                                Container(
+                                  child: RatingBar.builder(
+                                    initialRating: 4.5,
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    itemCount: 5,
+                                    itemSize: 20,
+                                    itemPadding: EdgeInsets.symmetric(horizontal: 1),
+                                    itemBuilder: (context, _) => Icon(
+                                      Icons.star_rounded,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (rating) {
+                                      print(rating);
+                                    },
+                                  ),
+                                ),
+                                SizedBox(height: 6),
+                                Container(
+                                  child: Text(
+                                    '\$150 - 300 Per Person',
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 6),
+                                Container(
+                                  child: Text(
+                                    '50% Off On Your First Order',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        elevation: 20,
-                        margin: EdgeInsets.only(top: 10, bottom: 10, right: 10),
-                      ),
+                      ],
                     ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Our Best Dishes',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                          SizedBox(height: 6),
-                          Container(
-                            child: RatingBar.builder(
-                              initialRating: 4.5,
-                              minRating: 1,
-                              direction: Axis.horizontal,
-                              allowHalfRating: true,
-                              itemCount: 5,
-                              itemSize: 20,
-                              itemPadding: EdgeInsets.symmetric(horizontal: 1),
-                              itemBuilder: (context, _) => Icon(
-                                Icons.star_rounded,
-                                color: Colors.amber,
-                              ),
-                              onRatingUpdate: (rating) {
-                                print(rating);
-                              },
+                  ) :
+                  Container(
+                    height: 190,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 4,
+                          child: Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  'Veg-Nonveg Dishes',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 20),
+                                ),
+                                SizedBox(height: 6),
+                                Container(
+                                  child: RatingBar.builder(
+                                    initialRating: 4,
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    itemCount: 5,
+                                    itemSize: 20,
+                                    itemPadding: EdgeInsets.symmetric(horizontal: 1),
+                                    itemBuilder: (context, _) => Icon(
+                                      Icons.star_rounded,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (rating) {
+                                      print(rating);
+                                    },
+                                  ),
+                                ),
+                                SizedBox(height: 6),
+                                Container(
+                                  child: Text(
+                                    '\400 - 500 Per Person',
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 6),
+                                Container(
+                                  child: Text(
+                                    '20% Off On Your First Order',
+                                    style: TextStyle(
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(height: 6),
-                          Container(
-                            child: Text(
-                              '\$150 - 300 Per Person',
-                              style: TextStyle(
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          Container(
-                            child: Text(
-                              '50% Off On Your First Order',
-                              style: TextStyle(
-                                color: Colors.red,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 15),
-            Container(
-              height: 190,
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            'Veg-Nonveg Dishes',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                          SizedBox(height: 6),
-                          Container(
-                            child: RatingBar.builder(
-                              initialRating: 4,
-                              minRating: 1,
-                              direction: Axis.horizontal,
-                              allowHalfRating: true,
-                              itemCount: 5,
-                              itemSize: 20,
-                              itemPadding: EdgeInsets.symmetric(horizontal: 1),
-                              itemBuilder: (context, _) => Icon(
-                                Icons.star_rounded,
-                                color: Colors.amber,
-                              ),
-                              onRatingUpdate: (rating) {
-                                print(rating);
-                              },
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          Container(
-                            child: Text(
-                              '\400 - 500 Per Person',
-                              style: TextStyle(
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          Container(
-                            child: Text(
-                              '20% Off On Your First Order',
-                              style: TextStyle(
-                                color: Colors.red,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      height: 200,
-                      child: Card(
-                        semanticContainer: true,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Image.asset(
-                          ImagePath.sub_dishes_2,
-                          fit: BoxFit.cover,
                         ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(80),
-                              topLeft: Radius.circular(80)),
-                        ),
-                        elevation: 20,
-                        margin: EdgeInsets.only(left: 10, top: 10, bottom: 10),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 15),
-            Container(
-              height: 190,
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      height: 200,
-                      child: Card(
-                        semanticContainer: true,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child: Image.asset(
-                          ImagePath.slider2,
-                          fit: BoxFit.cover,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomRight: Radius.circular(80),
-                              topRight: Radius.circular(80)),
-                        ),
-                        elevation: 20,
-                        margin: EdgeInsets.only(top: 10, bottom: 10, right: 10),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Our Best Pizzas',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                          SizedBox(height: 6),
-                          Container(
-                            child: RatingBar.builder(
-                              initialRating: 5,
-                              minRating: 1,
-                              direction: Axis.horizontal,
-                              allowHalfRating: true,
-                              itemCount: 5,
-                              itemSize: 20,
-                              itemPadding: EdgeInsets.symmetric(horizontal: 1),
-                              itemBuilder: (context, _) => Icon(
-                                Icons.star_rounded,
-                                color: Colors.amber,
+                        SizedBox(width: 10),
+                        Expanded(
+                          flex: 4,
+                          child: Container(
+                            height: 200,
+                            child: Card(
+                              semanticContainer: true,
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              child: Image.asset(
+                                ImagePath.sub_dishes_2,
+                                fit: BoxFit.cover,
                               ),
-                              onRatingUpdate: (rating) {
-                                print(rating);
-                              },
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(80),
+                                    topLeft: Radius.circular(80)),
+                              ),
+                              elevation: 20,
+                              margin: EdgeInsets.only(left: 10, top: 10, bottom: 10),
                             ),
                           ),
-                          SizedBox(height: 6),
-                          Container(
-                            child: Text(
-                              '\$150 - 300 Per Person',
-                              style: TextStyle(
-                                color: Colors.grey,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 6),
-                          Container(
-                            child: Text(
-                              '60% Off On Your First Order',
-                              style: TextStyle(
-                                color: Colors.red,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
+                  );
+                },
               ),
             ),
           ],

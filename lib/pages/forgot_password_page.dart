@@ -25,7 +25,7 @@ class ForgotPasswordPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.black,
                   image: DecorationImage(
-                    image: AssetImage(ImagePath.singin),
+                    image: AssetImage(ImagePath.signin),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.5),
@@ -130,6 +130,47 @@ class ForgotPasswordPage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget appBar(BuildContext context){
+    return Container(
+      color: ColorRes.kGreenColor,
+      height: 110,
+      padding: EdgeInsets.only(top: 45, left: 10, right: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          /*GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back, color: Colors.white),
+          ),*/
+
+          Container(
+            child: Text("Edit Account", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
+          ),
+          // Container(),
+          /*Stack(
+            alignment: Alignment.topRight,
+            children: [
+              Icon(Icons.lock, color: Colors.white,),
+
+              Container(
+                height: 15, width: 15,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.orangeAccent
+                ),
+                child: Center(
+                  child: Text("2",style: TextStyle(color: Colors.white, fontSize: 12),),
+                ),
+              )
+            ],
+          ),*/
+        ],
       ),
     );
   }

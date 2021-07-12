@@ -4,6 +4,7 @@ import 'package:food_app/common/images_path.dart';
 import 'package:food_app/pages/order_history_page.dart';
 import 'package:food_app/pages/profile_page.dart';
 import 'package:food_app/pages/select_city_page.dart';
+import 'package:food_app/pages/sign_in_page.dart';
 
 class CstDrawer extends StatelessWidget {
   const CstDrawer({Key? key}) : super(key: key);
@@ -161,6 +162,25 @@ class CstDrawer extends StatelessWidget {
                           Icon(Icons.shopping_bag_rounded, color: Colors.grey,size: 25,),
                           SizedBox(width: 10),
                           Text('My Order', style: TextStyle(color: Colors.grey, fontSize: 17),),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 12),
+                    child: GestureDetector(
+                      onTap: () {
+                        print('LogIn');
+                        Navigator.pop(context);
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage()));
+                      },
+                      child: Row(
+                        children: [
+                          Icon(Icons.login_rounded, color: Colors.grey,size: 25,),
+                          SizedBox(width: 10),
+                          Text('LogIn', style: TextStyle(color: Colors.grey, fontSize: 17),),
                         ],
                       ),
                     ),

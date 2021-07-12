@@ -8,16 +8,58 @@ class TrackingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text('Tracking'),
         centerTitle: true,
         backgroundColor: ColorRes.kGreenColor,
-      ),
+      ),*/
       body: Column(
         children: [
+          appBar(context),
           mapIntegration(context),
           SizedBox(height: 20),
           orderTrackingWidget(context),
+        ],
+      ),
+    );
+  }
+
+  Widget appBar(BuildContext context){
+    return Container(
+      color: ColorRes.kGreenColor,
+      height: 110,
+      padding: EdgeInsets.only(top: 45, left: 10, right: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back, color: Colors.white),
+          ),
+
+          Container(
+            child: Text("Tracking", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
+          ),
+
+          /*Stack(
+            alignment: Alignment.topRight,
+            children: [
+              Icon(Icons.lock, color: Colors.white,),
+
+              Container(
+                height: 15, width: 15,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.orangeAccent
+                ),
+                child: Center(
+                  child: Text("2",style: TextStyle(color: Colors.white, fontSize: 12),),
+                ),
+              )
+            ],
+          ),*/
         ],
       ),
     );

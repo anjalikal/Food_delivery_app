@@ -25,6 +25,7 @@ class VegDishesPage extends StatelessWidget {
       endDrawer: CstDrawer(),
       body: Column(
         children: [
+          // appBar(context),
           Container(
             height: 230,
             child: ListView.builder(
@@ -144,7 +145,7 @@ class VegDishesPage extends StatelessWidget {
                 itemCount: 20,
                 shrinkWrap: true,
                 physics: BouncingScrollPhysics(),
-                itemBuilder: (context, int){
+                itemBuilder: (context, int) {
                   return Padding(
                     padding: const EdgeInsets.all(10),
                     child: Container(
@@ -152,8 +153,12 @@ class VegDishesPage extends StatelessWidget {
                       child: Column(
                         children: [
                           GestureDetector(
-                            onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetailcreen()));
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ProductDetailcreen()));
                             },
                             child: Row(
                               children: [
@@ -171,7 +176,8 @@ class VegDishesPage extends StatelessWidget {
                                       child: Center(
                                         child: CircleAvatar(
                                           radius: 70,
-                                          backgroundImage: AssetImage(ImagePath.slider2),
+                                          backgroundImage:
+                                              AssetImage(ImagePath.slider2),
                                         ),
                                       ),
                                     ),
@@ -183,17 +189,20 @@ class VegDishesPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      width: MediaQuery.of(context).size.width * 0.50,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.50,
                                       child: Text(
                                         'Yellow Cup Plate',
-                                        style: TextStyle(fontWeight: FontWeight.bold),
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
                                         textScaleFactor: 1.1,
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                     ),
                                     SizedBox(height: 5),
                                     Container(
-                                      width: MediaQuery.of(context).size.width * 0.50,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.50,
                                       child: Text(
                                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec',
                                         style: TextStyle(color: Colors.grey),
@@ -205,7 +214,8 @@ class VegDishesPage extends StatelessWidget {
                                     SizedBox(height: 5),
                                     Text(
                                       '\$300',
-                                      style: TextStyle(color: ColorRes.kGreenColor),
+                                      style: TextStyle(
+                                          color: ColorRes.kGreenColor),
                                     ),
                                   ],
                                 ),

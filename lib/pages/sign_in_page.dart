@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
 import 'package:food_app/common/images_path.dart';
+import 'package:food_app/pages/forgot_password_page.dart';
+import 'package:food_app/pages/sign_up_page.dart';
 
 class SignInPage extends StatelessWidget {
 
@@ -26,7 +28,7 @@ class SignInPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.black,
                   image: DecorationImage(
-                    image: AssetImage(ImagePath.singin),
+                    image: AssetImage(ImagePath.signin),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.5),
@@ -138,6 +140,30 @@ class SignInPage extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 15),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUpPage()));
+                                },
+                                child: Container(
+                                  width: deviceWidth,
+                                  decoration: BoxDecoration(
+                                      color: ColorRes.kGreenColor,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: Center(
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 8.0),
+                                        child: Text(
+                                          'Sign Up',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      )),
+                                ),
+                              ),
+                              SizedBox(height: 15),
                               Container(
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -152,6 +178,7 @@ class SignInPage extends StatelessWidget {
                                     GestureDetector(
                                       onTap: () {
                                         print('Pressed On Reset Here!');
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordPage()));
                                       },
                                       child: Text(
                                         'Reset Here',

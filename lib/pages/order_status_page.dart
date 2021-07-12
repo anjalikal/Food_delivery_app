@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
 import 'package:food_app/common/images_path.dart';
+import 'package:food_app/pages/tracking_page.dart';
 //import 'package:food_app/constants.dart';
 
 class OrderStatusPage extends StatelessWidget {
@@ -9,19 +10,61 @@ class OrderStatusPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text('Order Status'),
         centerTitle: true,
         backgroundColor: ColorRes.kGreenColor,
-      ),
+      ),*/
       body: SingleChildScrollView(
         child: Column(
           children: [
+            appBar(context),
             invoiceNumber(),
             SizedBox(height: 25),
-            orderProcess(),
+            orderProcess(context),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget appBar(BuildContext context){
+    return Container(
+      color: ColorRes.kGreenColor,
+      height: 110,
+      padding: EdgeInsets.only(top: 45, left: 10, right: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back, color: Colors.white),
+          ),
+
+          Container(
+            child: Text("Order Status", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
+          ),
+          Container(),
+          /*Stack(
+            alignment: Alignment.topRight,
+            children: [
+              Icon(Icons.lock, color: Colors.white,),
+
+              Container(
+                height: 15, width: 15,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.orangeAccent
+                ),
+                child: Center(
+                  child: Text("2",style: TextStyle(color: Colors.white, fontSize: 12),),
+                ),
+              )
+            ],
+          ),*/
+        ],
       ),
     );
   }
@@ -68,7 +111,7 @@ class OrderStatusPage extends StatelessWidget {
     );
   }
 
-  Widget orderProcess() {
+  Widget orderProcess(BuildContext context) {
     return Container(
       child: Row(
         children: [
@@ -140,17 +183,22 @@ class OrderStatusPage extends StatelessWidget {
                                   TextStyle(color: Colors.grey, fontSize: 15),
                             ),
                             SizedBox(width: 5),
-                            Container(
-                              height: 30,
-                              width: 30,
-                              child: Icon(
-                                Icons.location_on_rounded,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: ColorRes.kGreenColor,
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => TrackingPage()));
+                              },
+                              child: Container(
+                                height: 30,
+                                width: 30,
+                                child: Icon(
+                                  Icons.location_on_rounded,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: ColorRes.kGreenColor,
+                                ),
                               ),
                             ),
                           ],

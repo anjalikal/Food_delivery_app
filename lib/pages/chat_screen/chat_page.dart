@@ -43,14 +43,14 @@ class ChatScreenState extends State<ChatScreen> {
       height: 118,
       padding: EdgeInsets.only(top: 60, left: 5),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          GestureDetector(
+          /*GestureDetector(
             onTap: (){
               Navigator.pop(context);
             },
-              child: Icon(Icons.arrow_back, color: Colors.white,)),
-
+              child: Icon(Icons.arrow_back, color: Colors.white,),
+          ),*/
           Container(
             child: Text("Chat", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
           ),

@@ -19,15 +19,16 @@ class _CartPageState extends State<CartPage> {
 
 
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         backgroundColor: ColorRes.kGreenColor,
         centerTitle: true,
         title: Text('Your Food Cart'),
-      ),
+      ),*/
       body: SingleChildScrollView(
         child: Container(
           child: Column(
             children: [
+              appBar(),
               cartItemsList(context),
               SizedBox(height: 10),
               promoCodeField(),
@@ -39,6 +40,47 @@ class _CartPageState extends State<CartPage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget appBar(){
+    return Container(
+      color: ColorRes.kGreenColor,
+      height: 110,
+      padding: EdgeInsets.only(top: 45, left: 10, right: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          /*GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back, color: Colors.white),
+          ),*/
+
+          Container(
+            child: Text("Your Food Cart", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
+          ),
+
+          /*Stack(
+            alignment: Alignment.topRight,
+            children: [
+              Icon(Icons.lock, color: Colors.white,),
+
+              Container(
+                height: 15, width: 15,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.orangeAccent
+                ),
+                child: Center(
+                  child: Text("2",style: TextStyle(color: Colors.white, fontSize: 12),),
+                ),
+              )
+            ],
+          ),*/
+        ],
       ),
     );
   }

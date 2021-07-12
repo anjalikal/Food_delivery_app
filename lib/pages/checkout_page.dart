@@ -22,11 +22,11 @@ class _CheckOutPageState extends State<CheckOutPage> {
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text('Checkout'),
         centerTitle: true,
         backgroundColor: ColorRes.kGreenColor,
-      ),
+      ),*/
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -34,6 +34,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
               padding: EdgeInsets.only(top: 20),
               child: Column(
                 children: [
+                  appBar(),
                   Container(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -291,6 +292,47 @@ class _CheckOutPageState extends State<CheckOutPage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget appBar(){
+    return Container(
+      color: ColorRes.kGreenColor,
+      height: 110,
+      padding: EdgeInsets.only(top: 45, left: 10, right: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back, color: Colors.white),
+          ),
+
+          Container(
+            child: Text("Checkout", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
+          ),
+          Container(),
+          /*Stack(
+            alignment: Alignment.topRight,
+            children: [
+              Icon(Icons.lock, color: Colors.white,),
+
+              Container(
+                height: 15, width: 15,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.orangeAccent
+                ),
+                child: Center(
+                  child: Text("2",style: TextStyle(color: Colors.white, fontSize: 12),),
+                ),
+              )
+            ],
+          ),*/
+        ],
       ),
     );
   }

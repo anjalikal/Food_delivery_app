@@ -8,14 +8,12 @@ class ExtraPage extends StatefulWidget {
 }
 
 class _ExtraPageState extends State<ExtraPage> {
-  int itemCount = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [],
-      ),
+
+      body:Container(),
     );
   }
 }

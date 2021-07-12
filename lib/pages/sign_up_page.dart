@@ -29,7 +29,7 @@ class SignUpPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.black,
                   image: DecorationImage(
-                    image: AssetImage(ImagePath.singin),
+                    image: AssetImage(ImagePath.signin),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.5),

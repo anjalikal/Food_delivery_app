@@ -14,7 +14,7 @@ class ImagePath{
   static const paypal = rootImage + 'paypal.png';
   static const profile = rootImage + 'profile.jpg';
   static const profile_page_img = rootImage + 'profile_page_img.jpg';
-  static const singin = rootImage + 'singin.jpg';
+  static const signin = rootImage + 'signin.jpg';
   static const slider1 = rootImage + 'slider1.jpg';
   static const slider2 = rootImage + 'slider2.jpg';
   static const slider3 = rootImage + 'slider3.jpg';

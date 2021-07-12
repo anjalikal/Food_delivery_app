@@ -19,14 +19,15 @@ class _SelectCityPageState extends State<SelectCityPage> {
     final deviceWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text('Select City'),
         centerTitle: true,
         backgroundColor: ColorRes.kGreenColor,
-      ),
+      ),*/
       body: SingleChildScrollView(
         child: Column(
           children: [
+            appBar(),
             Container(
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 35),
@@ -194,6 +195,47 @@ class _SelectCityPageState extends State<SelectCityPage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget appBar(){
+    return Container(
+      color: ColorRes.kGreenColor,
+      height: 110,
+      padding: EdgeInsets.only(top: 45, left: 10, right: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          /*GestureDetector(
+              onTap: (){
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back, color: Colors.white),
+          ),*/
+
+          Container(
+            child: Text("Select City", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
+          ),
+
+          /*Stack(
+            alignment: Alignment.topRight,
+            children: [
+              Icon(Icons.lock, color: Colors.white,),
+
+              Container(
+                height: 15, width: 15,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.orangeAccent
+                ),
+                child: Center(
+                  child: Text("2",style: TextStyle(color: Colors.white, fontSize: 12),),
+                ),
+              )
+            ],
+          ),*/
+        ],
       ),
     );
   }
