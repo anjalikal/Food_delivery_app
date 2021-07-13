@@ -184,7 +184,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
         ],
-      body: SingleChildScrollView(
+     /* body: SingleChildScrollView(
         child: Column(
           children: [
             appBar(),
@@ -356,6 +356,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ],
         ),
+      ),*/
       ),
     );
   }
