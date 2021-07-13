@@ -32,21 +32,26 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> with SingleTi
         actions: [
           Padding(
             padding: const EdgeInsets.all(12),
-            child: Stack(
-              alignment: Alignment.topRight,
-              children: [
-                Icon(Icons.shopping_cart_rounded,color: Colors.white,size: 27,),
-                Container(
-                  height: 14, width: 14,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.orangeAccent
+            child: InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage()));
+              },
+              child: Stack(
+                alignment: Alignment.topRight,
+                children: [
+                  Icon(Icons.shopping_cart_rounded,color: Colors.white,size: 27,),
+                  Container(
+                    height: 14, width: 14,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.orangeAccent
+                    ),
+                    child: Center(
+                      child: Text("2",style: TextStyle(color: Colors.white, fontSize: 9),),
+                    ),
                   ),
-                  child: Center(
-                    child: Text("2",style: TextStyle(color: Colors.white, fontSize: 9),),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
@@ -91,12 +96,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> with SingleTi
             child: Stack(
               alignment: Alignment.topRight,
               children: [
-                Icon(Icons.lock, color: Colors.white,),
+                Icon(Icons.lock, color: Colors.white),
                 Container(
                   height: 15, width: 15,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Colors.orangeAccent
+                    color: Colors.orangeAccent,
                   ),
                   child: Center(
                     child: Text("2",style: TextStyle(color: Colors.white, fontSize: 12),),
