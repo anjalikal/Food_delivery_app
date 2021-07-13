@@ -5,6 +5,7 @@ import 'package:food_app/common/color_resources.dart';
 import 'package:food_app/common/images_path.dart';
 import 'package:food_app/pages/edit_account_page.dart';
 import 'package:food_app/pages/order_history_page.dart';
+import 'package:food_app/pages/update_profile_page.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -181,7 +182,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => EditAccountPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateProfilePage()));
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0,vertical: 5),
