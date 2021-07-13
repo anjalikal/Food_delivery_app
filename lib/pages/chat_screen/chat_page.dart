@@ -26,72 +26,66 @@ class ChatScreenState extends State<ChatScreen> {
         leading: Container(),
       ),
       // resizeToAvoidBottomInset: false,
-      body: SingleChildScrollView(
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          // mainAxisSize: MainAxisSize.max,
-          children: [
-            // appBar(),
-            Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Container(
-                  height: MediaQuery.of(context).size.height / 1.25,
-                  child: ListView.builder(
-                    itemCount: 2,
-                    shrinkWrap: true,
-                    physics: BouncingScrollPhysics(),
-                    itemBuilder: (context, int) {
-                      return Column(
-                        children: [
-                          Text(
-                            '11 July 2021',
-                            textScaleFactor: 0.8,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          Bubble(
-                            isMe: true,
-                            message:
-                            "Parent Teacher Meeting will be held on Friday, 14th May'10. All parents are requested to come and meet the Teachers of their wards and discuss about their progress",
-                          ),
-                          Bubble(
-                            isMe: true,
-                            message: "Ok, We will reach at a time.",
-                          ),
-                          Text(
-                            'Today',
-                            textScaleFactor: 0.8,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          Bubble(
-                            isMe: false,
-                            message:
-                            "Dear parent, we wish your ward all the best for the SSC Exam. -Indian School, Versova, Mumbai",
-                          ),
-                          Bubble(
-                            isMe: false,
-                            message: "Dear Teacher, Thank you for reminder",
-                          ),
-                          Bubble(
-                            isMe: true,
-                            message:
-                            "Can you provide extra material to my child so he can learn more from it and get good score in exams?",
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                ),
-                message(),
-              ],
-            ),
 
-          ],
-        ),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // mainAxisSize: MainAxisSize.max,
+        children: [
+          Expanded(
+              child: Container(
+                //height: MediaQuery.of(context).size.height / 1.25,
+                child: ListView.builder(
+                  itemCount: 2,
+                  shrinkWrap: true,
+                  physics: BouncingScrollPhysics(),
+                  itemBuilder: (context, int) {
+                    return Column(
+                      children: [
+                        Text(
+                          '11 July 2021',
+                          textScaleFactor: 0.8,
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ),
+                        Bubble(
+                          isMe: true,
+                          message:
+                          "Parent Teacher Meeting will be held on Friday, 14th May'10. All parents are requested to come and meet the Teachers of their wards and discuss about their progress",
+                        ),
+                        Bubble(
+                          isMe: true,
+                          message: "Ok, We will reach at a time.",
+                        ),
+                        Text(
+                          'Today',
+                          textScaleFactor: 0.8,
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ),
+                        Bubble(
+                          isMe: false,
+                          message:
+                          "Dear parent, we wish your ward all the best for the SSC Exam. -Indian School, Versova, Mumbai",
+                        ),
+                        Bubble(
+                          isMe: false,
+                          message: "Dear Teacher, Thank you for reminder",
+                        ),
+                        Bubble(
+                          isMe: true,
+                          message:
+                          "Can you provide extra material to my child so he can learn more from it and get good score in exams?",
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ),),
+          message(),
+
+        ],
       ),
     );
   }
