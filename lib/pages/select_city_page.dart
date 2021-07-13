@@ -19,15 +19,15 @@ class _SelectCityPageState extends State<SelectCityPage> {
     final deviceWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      /*appBar: AppBar(
+      appBar: AppBar(
         title: Text('Select City'),
         centerTitle: true,
         backgroundColor: ColorRes.kGreenColor,
-      ),*/
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            appBar(),
+            // appBar(),
             Container(
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 35),

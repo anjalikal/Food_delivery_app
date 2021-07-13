@@ -4,9 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
 import 'package:food_app/common/images_path.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:food_app/pages/edit_account_page.dart';
-import 'package:food_app/pages/order_history_page.dart';
-import 'package:food_app/pages/update_profile_page.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -23,9 +20,15 @@ class _ProfilePageState extends State<ProfilePage> {
     final deviceWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Profile'),
+        centerTitle: true,
+        backgroundColor: ColorRes.kGreenColor,
+      ),
+
       body: Column(
         children: [
-          appBar(),
+          // appBar(),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(

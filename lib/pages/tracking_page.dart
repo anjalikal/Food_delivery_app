@@ -8,14 +8,14 @@ class TrackingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
+      appBar: AppBar(
         title: Text('Tracking'),
         centerTitle: true,
         backgroundColor: ColorRes.kGreenColor,
-      ),*/
+      ),
       body: Column(
         children: [
-          appBar(context),
+          // appBar(context),
           mapIntegration(context),
           SizedBox(height: 20),
           orderTrackingWidget(context),

@@ -22,11 +22,11 @@ class _CheckOutPageState extends State<CheckOutPage> {
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      /*appBar: AppBar(
+      appBar: AppBar(
         title: Text('Checkout'),
         centerTitle: true,
         backgroundColor: ColorRes.kGreenColor,
-      ),*/
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -34,7 +34,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
               // padding: EdgeInsets.only(top: 20),
               child: Column(
                 children: [
-                  appBar(),
+                  // appBar(),
                   Container(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

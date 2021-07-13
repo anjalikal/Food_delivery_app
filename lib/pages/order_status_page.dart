@@ -9,15 +9,15 @@ class OrderStatusPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
+      appBar: AppBar(
         title: Text('Order Status'),
         centerTitle: true,
         backgroundColor: ColorRes.kGreenColor,
-      ),*/
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            appBar(context),
+            // appBar(context),
             invoiceNumber(),
             SizedBox(height: 25),
             orderProcess(context),

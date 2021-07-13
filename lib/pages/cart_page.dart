@@ -19,16 +19,16 @@ class _CartPageState extends State<CartPage> {
 
 
     return Scaffold(
-      /*appBar: AppBar(
+      appBar: AppBar(
         backgroundColor: ColorRes.kGreenColor,
         centerTitle: true,
         title: Text('Your Food Cart'),
-      ),*/
+      ),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
             children: [
-              appBar(),
+              // appBar(),
               cartItemsList(context),
               SizedBox(height: 10),
               promoCodeField(),

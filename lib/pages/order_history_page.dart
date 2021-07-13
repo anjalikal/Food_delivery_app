@@ -6,15 +6,15 @@ class OrderHistoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
+      appBar: AppBar(
         title: Text('Order History'),
         centerTitle: true,
         backgroundColor: ColorRes.kGreenColor,
-      ),*/
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            appBar(context),
+            // appBar(context),
             Container(
               child: ListView.builder(
                 shrinkWrap: true,

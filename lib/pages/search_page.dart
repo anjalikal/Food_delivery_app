@@ -6,9 +6,14 @@ class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Search'),
+        centerTitle: true,
+        backgroundColor: ColorRes.kGreenColor,
+      ),
       body: Column(
         children: [
-          appBar(),
+          // appBar(),
           SizedBox(height: 10),
           searchBar(),
         ],

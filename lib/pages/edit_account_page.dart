@@ -9,15 +9,15 @@ class EditAccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
+      appBar: AppBar(
         title: Text('Edit Account'),
         centerTitle: true,
         backgroundColor: ColorRes.kGreenColor,
-      ),*/
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            appBar(context),
+            // appBar(context),
             SizedBox(height: 20),
             imageProfile(),
             SizedBox(height: 20),
