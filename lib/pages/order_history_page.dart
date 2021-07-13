@@ -14,7 +14,7 @@ class OrderHistoryPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            appBar(),
+            appBar(context),
             Container(
               child: ListView.builder(
                 shrinkWrap: true,
@@ -32,25 +32,25 @@ class OrderHistoryPage extends StatelessWidget {
   }
 
 
-  Widget appBar(){
+  Widget appBar(BuildContext context){
     return Container(
       color: ColorRes.kGreenColor,
       height: 110,
       padding: EdgeInsets.only(top: 45, left: 10, right: 10),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          /*GestureDetector(
+          GestureDetector(
               onTap: (){
                 Navigator.pop(context);
               },
               child: Icon(Icons.arrow_back, color: Colors.white),
-          ),*/
+          ),
 
           Container(
             child: Text("Order History", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
           ),
-
+          Container(),
           /*Stack(
             alignment: Alignment.topRight,
             children: [

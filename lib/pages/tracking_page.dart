@@ -1,8 +1,8 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TrackingPage extends StatelessWidget {
   @override
@@ -24,7 +24,7 @@ class TrackingPage extends StatelessWidget {
     );
   }
 
-  Widget appBar(BuildContext context){
+  Widget appBar(BuildContext context) {
     return Container(
       color: ColorRes.kGreenColor,
       height: 110,
@@ -33,14 +33,19 @@ class TrackingPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
-              onTap: (){
-                Navigator.pop(context);
-              },
-              child: Icon(Icons.arrow_back, color: Colors.white),
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back, color: Colors.white),
           ),
-
           Container(
-            child: Text("Tracking", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
+            child: Text(
+              "Tracking",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 21,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
           Container(),
           /*Stack(
@@ -145,23 +150,39 @@ class TrackingPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 45,
-                  width: 45,
-                  child: Icon(Icons.message_rounded, color: Colors.white,),
-                  decoration: BoxDecoration(
-                    color: Colors.orangeAccent,
-                    shape: BoxShape.circle,
+                InkWell(
+                  onTap: () {
+                    _sendingSMS();
+                  },
+                  child: Container(
+                    height: 45,
+                    width: 45,
+                    child: Icon(
+                      Icons.message_rounded,
+                      color: Colors.white,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.orangeAccent,
+                      shape: BoxShape.circle,
+                    ),
                   ),
                 ),
                 SizedBox(width: 20),
-                Container(
-                  height: 45,
-                  width: 45,
-                  child: Icon(Icons.call_rounded, color: Colors.white,),
-                  decoration: BoxDecoration(
-                    color: Colors.orangeAccent,
-                    shape: BoxShape.circle,
+                InkWell(
+                  onTap: () {
+                    _makingPhoneCall();
+                  },
+                  child: Container(
+                    height: 45,
+                    width: 45,
+                    child: Icon(
+                      Icons.call_rounded,
+                      color: Colors.white,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.orangeAccent,
+                      shape: BoxShape.circle,
+                    ),
                   ),
                 ),
               ],
@@ -177,17 +198,17 @@ class TrackingPage extends StatelessWidget {
                       color: ColorRes.kGreenColor,
                       borderRadius: BorderRadius.circular(5)),
                   child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 8.0),
-                        child: Text(
-                          'Order Details',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Text(
+                        'Order Details',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -195,5 +216,23 @@ class TrackingPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _makingPhoneCall() async {
+    const url = 'tel:9876543210';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _sendingSMS() async {
+    const url = 'sms:9876543210';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
