@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_app/common/color_resources.dart';
 import 'package:food_app/common/images_path.dart';
 import 'package:food_app/pages/tracking_page.dart';
-//import 'package:food_app/constants.dart';
 
 class OrderStatusPage extends StatelessWidget {
   const OrderStatusPage({Key? key}) : super(key: key);
@@ -117,7 +116,19 @@ class OrderStatusPage extends StatelessWidget {
         children: [
           Expanded(
             flex: 4,
-            child: Container(),
+            child: Container(
+              height: 240,
+              /*child: Image(
+                image: AssetImage(ImagePath.tracking),
+                fit: BoxFit.fitHeight,
+              ),*/
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(ImagePath.tracking),
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+            ),
           ),
           Expanded(
             flex: 6,
@@ -206,6 +217,7 @@ class OrderStatusPage extends StatelessWidget {
                       ],
                     ),
                   ),
+
                   SizedBox(height: 40),
                   Container(
                     child: Column(

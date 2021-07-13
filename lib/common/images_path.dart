@@ -19,4 +19,5 @@ class ImagePath{
   static const slider2 = rootImage + 'slider2.jpg';
   static const slider3 = rootImage + 'slider3.jpg';
   static const sub_dishes_2 = rootImage + 'sub_dishes_2.jpg';
+  static const tracking = rootImage + 'tracking.png';
 }

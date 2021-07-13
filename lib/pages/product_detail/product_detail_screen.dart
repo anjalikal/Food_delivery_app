@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:food_app/common/color_resources.dart';
 import 'package:food_app/common/images_path.dart';
+import 'package:food_app/pages/cart_page.dart';
 
-class ProductDetailcreen extends StatefulWidget {
- // const ProductDetailcreen({Key? key}) : super(key: key);
+class ProductDetailScreen extends StatefulWidget {
 
   @override
-  _ProductDetailcreenState createState() => _ProductDetailcreenState();
+  _ProductDetailScreenState createState() => _ProductDetailScreenState();
 }
 
-class _ProductDetailcreenState extends State<ProductDetailcreen> with SingleTickerProviderStateMixin{
+class _ProductDetailScreenState extends State<ProductDetailScreen> with SingleTickerProviderStateMixin{
   TabController? _tabController;
   int quant = 1;
   //TabController _tabController;
@@ -24,14 +24,42 @@ class _ProductDetailcreenState extends State<ProductDetailcreen> with SingleTick
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      appBar: AppBar(
+        title: Text('Yummy Noodles'),
+        centerTitle: true,
+        backgroundColor: ColorRes.kGreenColor,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                Icon(Icons.shopping_cart_rounded,color: Colors.white,size: 27,),
+                Container(
+                  height: 14, width: 14,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.orangeAccent
+                  ),
+                  child: Center(
+                    child: Text("2",style: TextStyle(color: Colors.white, fontSize: 9),),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
-            appBar(),
+            // appBar(),
             image(),
             productDescription(),
             tabView(),
-            dishListView()
+            dishListView(),
           ],
         ),
       ),
@@ -56,22 +84,26 @@ class _ProductDetailcreenState extends State<ProductDetailcreen> with SingleTick
             child: Text("Yummy noodles", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
           ),
 
-          Stack(
-            alignment: Alignment.topRight,
-            children: [
-              Icon(Icons.lock, color: Colors.white,),
-
-              Container(
-                height: 15, width: 15,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.orangeAccent
-                ),
-                child: Center(
-                  child: Text("2",style: TextStyle(color: Colors.white, fontSize: 12),),
-                ),
-              )
-            ],
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage()));
+            },
+            child: Stack(
+              alignment: Alignment.topRight,
+              children: [
+                Icon(Icons.lock, color: Colors.white,),
+                Container(
+                  height: 15, width: 15,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.orangeAccent
+                  ),
+                  child: Center(
+                    child: Text("2",style: TextStyle(color: Colors.white, fontSize: 12),),
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),

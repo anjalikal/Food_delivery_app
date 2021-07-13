@@ -30,7 +30,7 @@ class TrackingPage extends StatelessWidget {
       height: 110,
       padding: EdgeInsets.only(top: 45, left: 10, right: 10),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
               onTap: (){
@@ -42,7 +42,7 @@ class TrackingPage extends StatelessWidget {
           Container(
             child: Text("Tracking", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
           ),
-
+          Container(),
           /*Stack(
             alignment: Alignment.topRight,
             children: [
@@ -68,7 +68,7 @@ class TrackingPage extends StatelessWidget {
   Widget mapIntegration(BuildContext context) {
     final CameraPosition _kGooglePlex = CameraPosition(
       target: LatLng(21.1860, 72.7944),
-      // zoom: 14.4746,
+      zoom: 7,
     );
     Completer<GoogleMapController> _controller = Completer();
 

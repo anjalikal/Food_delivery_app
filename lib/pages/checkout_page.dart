@@ -31,7 +31,7 @@ class _CheckOutPageState extends State<CheckOutPage> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.only(top: 20),
+              // padding: EdgeInsets.only(top: 20),
               child: Column(
                 children: [
                   appBar(),

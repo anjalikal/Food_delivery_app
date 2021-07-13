@@ -4,32 +4,91 @@ import 'package:food_app/model/message_model.dart';
 import 'package:food_app/pages/chat_screen/chat_screen_view_model.dart';
 
 class ChatScreen extends StatefulWidget {
-
   @override
   ChatScreenState createState() => ChatScreenState();
 }
 
 class ChatScreenState extends State<ChatScreen> {
-   ChatScreenViewModel? model;
-   TextEditingController typeTextController = TextEditingController();
+  // ChatScreenViewModel? model;
+  TextEditingController typeTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    model ?? (model = ChatScreenViewModel(this));
-    print("Current page --> $runtimeType");
+    // model ?? (model = ChatScreenViewModel(this));
+    // print("Current page --> $runtimeType");
 
     return Scaffold(
+
+      appBar: AppBar(
+        title: Text('Chat'),
+        centerTitle: true,
+        backgroundColor: ColorRes.kGreenColor,
+        leading: Container(),
+      ),
+      // resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Column(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // mainAxisSize: MainAxisSize.max,
           children: [
-            appBar(),
+            // appBar(),
             Stack(
               alignment: Alignment.bottomCenter,
               children: [
-                chatList(),
-                message()
+                Container(
+                  height: MediaQuery.of(context).size.height / 1.25,
+                  child: ListView.builder(
+                    itemCount: 2,
+                    shrinkWrap: true,
+                    physics: BouncingScrollPhysics(),
+                    itemBuilder: (context, int) {
+                      return Column(
+                        children: [
+                          Text(
+                            '11 July 2021',
+                            textScaleFactor: 0.8,
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Bubble(
+                            isMe: true,
+                            message:
+                            "Parent Teacher Meeting will be held on Friday, 14th May'10. All parents are requested to come and meet the Teachers of their wards and discuss about their progress",
+                          ),
+                          Bubble(
+                            isMe: true,
+                            message: "Ok, We will reach at a time.",
+                          ),
+                          Text(
+                            'Today',
+                            textScaleFactor: 0.8,
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Bubble(
+                            isMe: false,
+                            message:
+                            "Dear parent, we wish your ward all the best for the SSC Exam. -Indian School, Versova, Mumbai",
+                          ),
+                          Bubble(
+                            isMe: false,
+                            message: "Dear Teacher, Thank you for reminder",
+                          ),
+                          Bubble(
+                            isMe: true,
+                            message:
+                            "Can you provide extra material to my child so he can learn more from it and get good score in exams?",
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+                message(),
               ],
-            )
-
+            ),
 
           ],
         ),
@@ -37,7 +96,7 @@ class ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  appBar(){
+  appBar() {
     return Container(
       color: ColorRes.kGreenColor,
       height: 118,
@@ -52,7 +111,13 @@ class ChatScreenState extends State<ChatScreen> {
               child: Icon(Icons.arrow_back, color: Colors.white,),
           ),*/
           Container(
-            child: Text("Chat", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold),),
+            child: Text(
+              "Chat",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 21,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
           Container()
         ],
@@ -60,7 +125,7 @@ class ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  chatList(){
+/*chatList(){
     return Container(
       height: MediaQuery.of(context).size.height/1.3,
       child: ListView.builder(
@@ -111,7 +176,8 @@ class ChatScreenState extends State<ChatScreen> {
                       children: [
                         SizedBox(height: 50,),
 
-                        /*Container(
+                        */
+  /*Container(
                           padding: EdgeInsets.only(left: 10, right: 10, top: 10),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(60),
@@ -119,6 +185,7 @@ class ChatScreenState extends State<ChatScreen> {
                               model.smsData[index].image, height: 30,),
                           ),
                         ),*/
+  /*
                       ],
                     ),
                     Column(
@@ -153,30 +220,33 @@ class ChatScreenState extends State<ChatScreen> {
             }
           }),
     );
-  }
+  }*/
 
-  message(){
+  message() {
     return Container(
       height: 50,
+      // margin: EdgeInsets.only(bottom: 50),
       padding: EdgeInsets.only(left: 5, right: 5),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: ColorRes.lightGreenColor
-      ),
+          borderRadius: BorderRadius.circular(10),
+          color: ColorRes.lightGreenColor),
       child: Row(
         children: [
           Container(
-            child: Icon(Icons.emoji_emotions, color: Colors.grey, size: 20,),
+            child: Icon(
+              Icons.emoji_emotions,
+              color: Colors.grey,
+              size: 20,
+            ),
           ),
-
           Expanded(
             child: Container(
-             //height: 45,
-              /*decoration: BoxDecoration(
+              //height: 45,
+              decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   //border: Border.all(color: Colors.grey.shade400, width: 1),
-                  color: Colors.grey.shade200
-              ),*/
+                  // color: Colors.grey.shade200,
+              ),
               child: TextFormField(
                 controller: typeTextController,
                 decoration: InputDecoration(
@@ -192,47 +262,35 @@ class ChatScreenState extends State<ChatScreen> {
                         borderRadius: BorderRadius.circular(30)),
                     /*suffixIcon: InkWell(
                       onTap: () {
-                        *//*model.smsData.add(MessageModel(
-                            name: "Will",
-                            senderId: '1',
-                            message: typeTextController.text,
-                            time: "10:05 AM",
-                            date: "2020-01-20",
-                            image: ImagePath.profile,
-                            relation: "Staff"
-                        ));
+                        // message: typeTextController.text;
                         typeTextController.clear();
-                        setState(() {});*//*
+                        setState(() {});
                       },
                       child: CircleAvatar(
                         radius: 28,
                         //backgroundColor: Colors.blue,
                         //child: Icon(Icons.send)
-                        child: ClipOval(
-                            child: Icon(Icons.send)
-                        ),
+                        child: ClipOval(child: Icon(Icons.send)),
                       ),
-                    )*/
+                    ),*/
                 ),
               ),
             ),
           ),
-
-          Icon(Icons.camera_alt, color: Colors.grey, size: 22,),
-          SizedBox(width: 5,),
+          Icon(
+            Icons.camera_alt,
+            color: Colors.grey,
+            size: 22,
+          ),
+          SizedBox(
+            width: 5,
+          ),
           Icon(Icons.picture_in_picture, color: Colors.grey, size: 22),
-          SizedBox(width: 5,),
+          SizedBox(
+            width: 5,
+          ),
           GestureDetector(
-            onTap: (){
-              model!.smsData.add(MessageModel(
-                 // name: "Will",
-                  senderId: '1',
-                  message: typeTextController.text,
-                  time: "10:05 AM",
-                 // date: "2020-01-20",
-                 // image: ImagePath.profile,
-                 // relation: "Staff"
-              ));
+            onTap: () {
               typeTextController.clear();
               setState(() {});
             },
@@ -241,9 +299,75 @@ class ChatScreenState extends State<ChatScreen> {
               backgroundColor: Colors.orangeAccent,
               //child: Icon(Icons.send)
               child: ClipOval(
-                  child: Icon(Icons.send, color: Colors.white,)
-              ),
+                  child: Icon(
+                Icons.send,
+                color: Colors.white,
+              )),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Bubble extends StatelessWidget {
+  final bool? isMe;
+  final String? message;
+
+  Bubble({this.isMe, this.message});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(5),
+      padding: isMe! ? EdgeInsets.only(left: 40) : EdgeInsets.only(right: 40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Column(
+            mainAxisAlignment:
+                isMe! ? MainAxisAlignment.end : MainAxisAlignment.start,
+            crossAxisAlignment:
+                isMe! ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  gradient: isMe!
+                      ? LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          stops: [0.1, 1],
+                          colors: [
+                            Color(0xFFF6D365),
+                            Color(0xFFFDA085),
+                          ],
+                        )
+                      : LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          stops: [0.1, 1],
+                          colors: [
+                            Color(0xFFEBF5FC),
+                            Color(0xFFEBF5FC),
+                          ],
+                        ),
+                ),
+                child: Column(
+                  crossAxisAlignment:
+                      isMe! ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      message!,
+                      textAlign: isMe! ? TextAlign.end : TextAlign.start,
+                      style:
+                          TextStyle(color: isMe! ? Colors.white : Colors.grey),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),

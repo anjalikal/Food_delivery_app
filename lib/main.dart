@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/pages/IndexPage.dart';
+import 'pages/splash_page/splash_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Food App",
-      home: IndexPage(),
+      debugShowCheckedModeBanner: false,
+      home: SplashPage(),
     );
   }
 }

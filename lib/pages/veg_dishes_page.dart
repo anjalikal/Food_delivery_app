@@ -158,7 +158,7 @@ class VegDishesPage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          ProductDetailcreen()));
+                                          ProductDetailScreen()));
                             },
                             child: Row(
                               children: [

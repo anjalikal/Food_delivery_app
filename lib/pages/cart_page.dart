@@ -96,7 +96,7 @@ class _CartPageState extends State<CartPage> {
         itemCount: 3,
         itemBuilder: (context, int) {
           return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: Material(
               elevation: 10,
               borderRadius: BorderRadius.circular(8),
